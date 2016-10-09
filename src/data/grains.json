@@ -1,0 +1,317 @@
+[
+	{
+		"name": "Acidulated Malt",
+		"ebc": 5,
+		"potential": 1.038
+	},
+	{
+		"name": "Abbey",
+		"ebc": 45,
+		"potential": 1.038
+	},
+	{
+		"name": "Ale Golden Promise",
+		"ebc": 6,
+		"potential": 1.038
+	},
+	{
+		"name": "Ale Halycon",
+		"ebc": 5.8,
+		"potential": 1.038
+	},
+	{
+		"name": "Ale Malt",
+		"ebc": 6,
+		"potential": 1.038
+	},
+	{
+		"name": "Ale Maris Otter",
+		"ebc": 6,
+		"potential": 1.038
+	},
+	{
+		"name": "Ale Perle",
+		"ebc": 6,
+		"potential": 1.038
+	},
+	{
+		"name": "Amber 50",
+		"ebc": 50,
+		"potential": 1.035
+	},
+	{
+		"name": "Aromatic",
+		"ebc": 36,
+		"potential": 1.036
+	},
+	{
+		"name": "Barley Flaked",
+		"ebc": 3,
+		"potential": 1.032
+	},
+	{
+		"name": "Barley Roasted",
+		"ebc": 1300,
+		"potential": 1.025
+	},
+	{
+		"name": "Biscuit Malt",
+		"ebc": 50,
+		"potential": 1.036
+	},
+	{
+		"name": "Black Patent Malt ",
+		"ebc": 1300,
+		"potential": 1.026
+	},
+	{
+		"name": "Brown Malt",
+		"ebc": 145,
+		"potential": 1.032
+	},
+	{
+		"name": "CaraAmber",
+		"ebc": 70,
+		"potential": 1.035
+	},
+	{
+		"name": "CaraAroma ",
+		"ebc": 400,
+		"potential": 1.035
+	},
+	{
+		"name": "CaraBelge",
+		"ebc": 33,
+		"potential": 1.034
+	},
+	{
+		"name": "CaraBohemian",
+		"ebc": 195,
+		"potential": 1.035
+	},
+	{
+		"name": "Carafa 1",
+		"ebc": 900,
+		"potential": 1.038
+	},
+	{
+		"name": "Carafa 2",
+		"ebc": 1100,
+		"potential": 1.038
+	},
+	{
+		"name": "Carafa 3",
+		"ebc": 1400,
+		"potential": 1.038
+	},
+	{
+		"name": "CaraFoam ",
+		"ebc": 2.0,
+		"potential": 1.033
+	},
+	{
+		"name": "CaraHell",
+		"ebc": 25.0,
+		"potential": 1.034
+	},
+	{
+		"name": "Caramalt Dark Malt TF",
+		"ebc": 85,
+		"potential": 1.034
+	},
+	{
+		"name": "Caramalt Malt",
+		"ebc": 50.0,
+		"potential": 1.034
+	},
+	{
+		"name": "Caramel Wheat Malt ",
+		"ebc": 115.0,
+		"potential": 1.035
+	},
+	{
+		"name": "CaraMunich 1",
+		"ebc": 90,
+		"potential": 1.034
+	},
+	{
+		"name": "CaraMunich 2",
+		"ebc": 120,
+		"potential": 1.034
+	},
+	{
+		"name": "CaraMunich 3",
+		"ebc": 150,
+		"potential": 1.034
+	},
+	{
+		"name": "CaraPils ",
+		"ebc": 3,
+		"potential": 1.033
+	},
+	{
+		"name": "CaraRed ",
+		"ebc": 45,
+		"potential": 1.033
+	},
+	{
+		"name": "CaraVienna ",
+		"ebc": 43.3,
+		"potential": 1.034
+	},
+	{
+		"name": "Choc Chit Malt",
+		"ebc": 600,
+		"potential": 1.034
+	},
+	{
+		"name": "Chocolate Malt 1200",
+		"ebc": 1200,
+		"potential": 1.034
+	},
+	{
+		"name": "Chocolate Malt 600",
+		"ebc": 600,
+		"potential": 1.034
+	},
+	{
+		"name": "Crystal Dark 270",
+		"ebc": 270,
+		"potential": 1.034
+	},
+	{
+		"name": "Crystal Medium 150",
+		"ebc": 150,
+		"potential": 1.034
+	},
+	{
+		"name": "Crystal Pale 100",
+		"ebc": 100,
+		"potential": 1.034
+	},
+	{
+		"name": "Dextrine Malt ",
+		"ebc": 3,
+		"potential": 1.033
+	},
+	{
+		"name": "Light Crystal 60",
+		"ebc": 60,
+		"potential": 1.034
+	},
+	{
+		"name": "Melanoidin Malt",
+		"ebc": 70,
+		"potential": 1.033
+	},
+	{
+		"name": "Munich 1",
+		"ebc": 15,
+		"potential": 1.037
+	},
+	{
+		"name": "Munich 2",
+		"ebc": 23,
+		"potential": 1.037
+	},
+	{
+		"name": "Oats Flaked",
+		"ebc": 2,
+		"potential": 1.037
+	},
+	{
+		"name": "Oats Malted",
+		"ebc": 2.0,
+		"potential": 1.037
+	},
+	{
+		"name": "Peated Malt ",
+		"ebc": 5.9,
+		"potential": 1.034
+	},
+	{
+		"name": "Pilsner Malt",
+		"ebc": 4,
+		"potential": 1.038
+	},
+	{
+		"name": "Pilsner Pale Malt",
+		"ebc": 3.5,
+		"potential": 1.038
+	},
+	{
+		"name": "Premium Pilsner Malt",
+		"ebc": 2.5,
+		"potential": 1.038
+	},
+	{
+		"name": "Rice Flaked",
+		"ebc": 2,
+		"potential": 1.032
+	},
+	{
+		"name": "Rye Caramel Malt",
+		"ebc": 175,
+		"potential": 1.031
+	},
+	{
+		"name": "Rye Chocolate Malt",
+		"ebc": 650,
+		"potential": 1.030
+	},
+	{
+		"name": "Rye Flaked",
+		"ebc": 4,
+		"potential": 1.036
+	},
+	{
+		"name": "Rye Malt",
+		"ebc": 5.5,
+		"potential": 1.030
+	},
+	{
+		"name": "Special B ",
+		"ebc": 355,
+		"potential": 1.030
+	},
+	{
+		"name": "Special Roast ",
+		"ebc": 98.5,
+		"potential": 1.035
+	},
+	{
+		"name": "Toasted Malt ",
+		"ebc": 9.9,
+		"potential": 1.029
+	},
+	{
+		"name": "Victory Malt",
+		"ebc": 55,
+		"potential": 1.034
+	},
+	{
+		"name": "Vienna Malt",
+		"ebc": 8,
+		"potential": 1.038
+	},
+	{
+		"name": "Wheat Caramel Malt",
+		"ebc": 115,
+		"potential": 1.035
+	},
+	{
+		"name": "Wheat Chocolate Malt",
+		"ebc": 1000,
+		"potential": 1.038
+	},
+	{
+		"name": "Wheat Flaked",
+		"ebc": 3,
+		"potential": 1.035
+	},
+	{
+		"name": "Wheat Malt",
+		"ebc": 3,
+		"potential": 1.039
+	}
+]

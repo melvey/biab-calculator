@@ -1,0 +1,116 @@
+[	
+	{
+		"name": "Brown Sugar",
+		"ebc": 80,
+		"potential": 1.046,
+		"fermentability": 100
+	},
+	{
+		"name": "Candi Sugar Amber",
+		"ebc": 150,
+		"potential": 1.036,
+		"fermentability": 100
+	},
+	{
+		"name": "Candi Sugar Clear",
+		"ebc": 0.1,
+		"potential": 1.036,
+		"fermentability": 100
+	},
+	{
+		"name": "Candi Sugar Dark",
+		"ebc": 550,
+		"potential": 1.036,
+		"fermentability": 100
+	},
+	{
+		"name": "Dark Brown Sugar",
+		"ebc": 120,
+		"potential": 1.046,
+		"fermentability": 100
+	},
+	{
+		"name": "Demerara Sugar",
+		"ebc": 1,
+		"potential": 1.042,
+		"fermentability": 100
+	},
+	{
+		"name": "Dextrose",
+		"ebc": 0.1,
+		"potential": 1.041,
+		"fermentability": 100
+	},
+	{
+		"name": "Dry Malt Extract Amber",
+		"ebc": 20,
+		"potential": 1.039,
+		"fermentability": 78
+	},
+	{
+		"name": "Dry Malt Extract Dark",
+		"ebc": 100,
+		"potential": 1.039,
+		"fermentability": 78
+	},
+	{
+		"name": "Dry Malt Extract Light",
+		"ebc": 9,
+		"potential": 1.039,
+		"fermentability": 78
+	},
+	{
+		"name": "Dry Malt Extract Wheat",
+		"ebc": 6.8,
+		"potential": 1.039,
+		"fermentability": 78
+	},
+	{
+		"name": "Golden Syrup",
+		"ebc": 1,
+		"potential": 1.036,
+		"fermentability": 100
+	},
+	{
+		"name": "Honey",
+		"ebc": 2,
+		"potential": 1.032,
+		"fermentability": 100
+	},
+	{
+		"name": "Lactose",
+		"ebc": 0.1,
+		"potential": 1.043,
+		"fermentability": 1
+	},
+	{
+		"name": "Maltodextrin",
+		"ebc": 0.1,
+		"potential": 1.042,
+		"fermentability": 3
+	},
+	{
+		"name": "Maple Syrup",
+		"ebc": 69,
+		"potential": 1.030,
+		"fermentability": 100
+	},
+	{
+		"name": "Molasses",
+		"ebc": 160,
+		"potential": 1.036,
+		"fermentability": 100
+	},
+	{
+		"name": "Treacle",
+		"ebc": 200,
+		"potential": 1.036,
+		"fermentability": 100
+	},
+	{
+		"name": "White Sugar",
+		"ebc": 0.1,
+		"potential": 1.046,
+		"fermentability": 100
+	}
+]

@@ -1,0 +1,46 @@
+@import '../variables.scss';
+
+:local(.root) {
+  background: $banner-colour;
+  color: $heading-colour;
+}
+
+:local(.container) {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: $max-content-width;
+	display: flex;
+}
+
+:local(.brand) {
+  text-decoration: none;
+  font-size: 1.75em; /* ~28px */
+}
+
+:local(.brandTxt) {
+  margin-left: 10px;
+}
+
+:local(.nav) {
+  float: right;
+  margin-top: 6px;
+}
+
+:local(.banner) {
+  text-align: center;
+}
+
+:local(.bannerTitle) {
+  margin: 0;
+  padding: 5px;
+  font-weight: normal;
+  font-size: 2em;
+  line-height: 1em;
+}
+
+:local(.bannerDesc) {
+  padding: 0;
+  color: rgba(255, 255, 255, .5);
+  font-size: 1.25em;
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+@import '../variables.scss';
+
+:local(.content) {
+	background-color: $foreground-colour;
+	padding: 20px;
+	border: 1px solid $highlight-colour;
+	display: flex;
+}
+
+:local(.row) {
+	display: block;
+}

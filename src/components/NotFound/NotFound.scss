@@ -1,0 +1,22 @@
+@import '../variables.scss';
+
+:local(.container) {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: $max-content-width;
+}
+
+:local(.heading) {
+	font-family: $font-family-heading;
+	font-size: 3em;
+	text-align: center;
+}
+
+:local(.content) {
+	font-family: $font-family-body;
+	text-align: center;
+	font-size: 2em;
+}
+
+
+

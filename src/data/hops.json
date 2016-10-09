@@ -1,0 +1,477 @@
+[
+{
+		"name": "Admiral",
+		"aa": 14.8,
+		"description": ""
+	},
+	{
+		"name": "Ahtanum",
+		"aa": 5.2,
+		"description": ""
+	},
+	{
+		"name": "Amarillo",
+		"aa": 8.5,
+		"description": ""
+	},
+	{
+		"name": "Aurora",
+		"aa": 9.0,
+		"description": ""
+	},
+	{
+		"name": "Riwaka (B Saaz)",
+		"aa": 6.8,
+		"description": ""
+	},
+	{
+		"name": "Boadicea",
+		"aa": 7.1,
+		"description": ""
+	},
+	{
+		"name": "Bobek",
+		"aa": 5.9,
+		"description": ""
+	},
+	{
+		"name": "Bramling Cross",
+		"aa": 5.1,
+		"description": ""
+	},
+	{
+		"name": "Brewer's Gold",
+		"aa": 5.0,
+		"description": ""
+	},
+	{
+		"name": "Bullion",
+		"aa": 7.9,
+		"description": ""
+	},
+	{
+		"name": "Cascade",
+		"aa": 7.8,
+		"description": ""
+	},
+	{
+		"name": "Centennial",
+		"aa": 9.7,
+		"description": ""
+	},
+	{
+		"name": "Challenger",
+		"aa": 7.5,
+		"description": ""
+	},
+	{
+		"name": "Chinook",
+		"aa": 12.0,
+		"description": ""
+	},
+	{
+		"name": "Citra",
+		"aa": 11.1,
+		"description": ""
+	},
+	{
+		"name": "Cluster",
+		"aa": 7.0,
+		"description": ""
+	},
+	{
+		"name": "Columbus",
+		"aa": 13.5,
+		"description": ""
+	},
+	{
+		"name": "Crystal",
+		"aa": 3.3,
+		"description": ""
+	},
+	{
+		"name": "Czech Saaz",
+		"aa": 5.5,
+		"description": ""
+	},
+	{
+		"name": "Motueka (D Saaz)",
+		"aa": 5.4,
+		"description": ""
+	},
+	{
+		"name": "East Kent Golding",
+		"aa": 4.5,
+		"description": ""
+	},
+	{
+		"name": "Eroica",
+		"aa": 10.5,
+		"description": ""
+	},
+	{
+		"name": "Falconers Flight",
+		"aa": 10.5,
+		"description": ""
+	},
+	{
+		"name": "First Gold ",
+		"aa": 7.5,
+		"description": ""
+	},
+	{
+		"name": "Fuggles",
+		"aa": 4.5,
+		"description": ""
+	},
+	{
+		"name": "Galaxy",
+		"aa": 13.5,
+		"description": ""
+	},
+	{
+		"name": "Galena",
+		"aa": 12.0,
+		"description": ""
+	},
+	{
+		"name": "Glacier",
+		"aa": 5.5,
+		"description": ""
+	},
+	{
+		"name": "Golden Cluster",
+		"aa": 8.0,
+		"description": ""
+	},
+	{
+		"name": "Goldings",
+		"aa": 5.0,
+		"description": ""
+	},
+	{
+		"name": "Green Bullet",
+		"aa": 9.8,
+		"description": ""
+	},
+	{
+		"name": "Hallertauer",
+		"aa": 4.2,
+		"description": ""
+	},
+	{
+		"name": "Hallertau Aroma",
+		"aa": 8.0,
+		"description": ""
+	},
+	{
+		"name": "Hallertauer Gold",
+		"aa": 6.3,
+		"description": ""
+	},
+	{
+		"name": "Hallertauer Mittelfrüh",
+		"aa": 4.3,
+		"description": ""
+	},
+	{
+		"name": "Hallertauer Pacific",
+		"aa": 5.5,
+		"description": ""
+	},
+	{
+		"name": "Hersbrucker",
+		"aa": 4.3,
+		"description": ""
+	},
+	{
+		"name": "Horizon",
+		"aa": 12.5,
+		"description": ""
+	},
+	{
+		"name": "Kent Golding",
+		"aa": 4.8,
+		"description": ""
+	},
+	{
+		"name": "Liberty",
+		"aa": 4.5,
+		"description": ""
+	},
+	{
+		"name": "Magnum",
+		"aa": 14.0,
+		"description": ""
+	},
+	{
+		"name": "Millenium",
+		"aa": 15.5,
+		"description": ""
+	},
+	{
+		"name": "Motueka",
+		"aa": 7.0,
+		"description": ""
+	},
+	{
+		"name": "Mt. Hood",
+		"aa": 5.5,
+		"description": ""
+	},
+	{
+		"name": "Nelson Sauvin",
+		"aa": 11.5,
+		"description": ""
+	},
+	{
+		"name": "Newport",
+		"aa": 15.5,
+		"description": ""
+	},
+	{
+		"name": "Northdown ",
+		"aa": 8.5,
+		"description": ""
+	},
+	{
+		"name": "Northern Brewer",
+		"aa": 9.8,
+		"description": ""
+	},
+	{
+		"name": "Northwest Golding",
+		"aa": 4.5,
+		"description": ""
+	},
+	{
+		"name": "Nugget",
+		"aa": 13.0,
+		"description": ""
+	},
+	{
+		"name": "Olympic",
+		"aa": 12.0,
+		"description": ""
+	},
+	{
+		"name": "Opal",
+		"aa": 6.5,
+		"description": ""
+	},
+	{
+		"name": "Pacific Gem",
+		"aa": 14.0,
+		"description": ""
+	},
+	{
+		"name": "Pacifica (Pacific Hallertau)",
+		"aa": 5.8,
+		"description": ""
+	},
+	{
+		"name": "Pacific Jade",
+		"aa": 15.2,
+		"description": ""
+	},
+	{
+		"name": "Pacifica",
+		"aa": 5.8,
+		"description": ""
+	},
+	{
+		"name": "Palisade",
+		"aa": 7.5,
+		"description": ""
+	},
+	{
+		"name": "Perle",
+		"aa": 7.8,
+		"description": ""
+	},
+	{
+		"name": "Phoenix",
+		"aa": 4.8,
+		"description": ""
+	},
+	{
+		"name": "Pilgrim",
+		"aa": 10.4,
+		"description": ""
+	},
+	{
+		"name": "Pioneer",
+		"aa": 9.0,
+		"description": ""
+	},
+	{
+		"name": "Polish Lublin",
+		"aa": 3.8,
+		"description": ""
+	},
+	{
+		"name": "Pride of Ringwood",
+		"aa": 9.0,
+		"description": ""
+	},
+	{
+		"name": "Progress",
+		"aa": 6.3,
+		"description": ""
+	},
+	{
+		"name": "Riwaka",
+		"aa": 6.8,
+		"description": ""
+	},
+	{
+		"name": "Saaz",
+		"aa": 4.0,
+		"description": ""
+	},
+	{
+		"name": "Santiam",
+		"aa": 6.5,
+		"description": ""
+	},
+	{
+		"name": "Saphir",
+		"aa": 3.3,
+		"description": ""
+	},
+	{
+		"name": "Satus",
+		"aa": 13.3,
+		"description": ""
+	},
+	{
+		"name": "Select",
+		"aa": 5.0,
+		"description": ""
+	},
+	{
+		"name": "Simcoe",
+		"aa": 13.0,
+		"description": ""
+	},
+	{
+		"name": "Smaragd",
+		"aa": 5.0,
+		"description": ""
+	},
+	{
+		"name": "Sorachi",
+		"aa": 11.6,
+		"description": ""
+	},
+	{
+		"name": "Southern Cross",
+		"aa": 12.5,
+		"description": ""
+	},
+	{
+		"name": "Spalt",
+		"aa": 4.8,
+		"description": ""
+	},
+	{
+		"name": "Spalt Select",
+		"aa": 5.0,
+		"description": ""
+	},
+	{
+		"name": "Sterling",
+		"aa": 7.5,
+		"description": ""
+	},
+	{
+		"name": "Sticklebract",
+		"aa": 10.0,
+		"description": ""
+	},
+	{
+		"name": "Strisslespalt",
+		"aa": 4.0,
+		"description": ""
+	},
+	{
+		"name": "Styrian Golding",
+		"aa": 3.2,
+		"description": ""
+	},
+	{
+		"name": "Summer Saaz",
+		"aa": 6.3,
+		"description": ""
+	},
+	{
+		"name": "Super Alpha",
+		"aa": 13.3,
+		"description": ""
+	},
+	{
+		"name": "Summit",
+		"aa": 17.0,
+		"description": ""
+	},
+	{
+		"name": "Target",
+		"aa": 11.0,
+		"description": ""
+	},
+	{
+		"name": "Tettnanger",
+		"aa": 4.3,
+		"description": ""
+	},
+	{
+		"name": "Tomahawk",
+		"aa": 16.0,
+		"description": ""
+	},
+	{
+		"name": "Topaz",
+		"aa": 16.2,
+		"description": ""
+	},
+	{
+		"name": "Tradition",
+		"aa": 6.0,
+		"description": ""
+	},
+	{
+		"name": "Ultra",
+		"aa": 3.1,
+		"description": ""
+	},
+	{
+		"name": "Vanguard",
+		"aa": 4.7,
+		"description": ""
+	},
+	{
+		"name": "Warrior",
+		"aa": 16.0,
+		"description": ""
+	},
+	{
+		"name": "Whitbread Golding Variety",
+		"aa": 6.0,
+		"description": ""
+	},
+	{
+		"name": "Willamette",
+		"aa": 4.3,
+		"description": ""
+	},
+	{
+		"name": "Yakima Cluster",
+		"aa": 7.2,
+		"description": ""
+	},
+	{
+		"name": "Zeus",
+		"aa": 15.0,
+		"description": ""
+	}
+]

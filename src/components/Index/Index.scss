@@ -1,0 +1,7 @@
+@import '../variables.scss';
+
+:local(.container) {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: $max-content-width;
+}

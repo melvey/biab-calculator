@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+	head
+		title BIAB Calculator
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+
+
+		meta(name='description', content='#{A web application to create and share Beer In A Bag (BIAB) homebrew recipes}')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+
+	body
+		#app!= content
+
+		each script in scripts
+			script(src='#{script}', defer)
