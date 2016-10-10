@@ -4,8 +4,8 @@
 **/
 
 import {combineReducers} from 'redux';
-import dummyReducer from './DummyReducer';
+import recipeReducer from './RecipeReducer';
 
 export default combineReducers({
-	dummy: dummyReducer
+	recipe: recipeReducer
 });

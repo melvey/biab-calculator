@@ -10,6 +10,7 @@ class GrainTable extends Component {
 			ebc: PropTypes.number,
 			potential: PropTypes.number
 		})),
+		grains: PropTypes.array,
 		updateFunc: PropTypes.func
 	};
 
@@ -17,17 +18,18 @@ class GrainTable extends Component {
 		super();
 
 		this.props = props;
-		this.state = {
-			grains: [
-				this.getEmptyGrainData()
-			]
-		};
 
 		this.getEmptyGrainData = this.getEmptyGrainData.bind(this);
 		this.updateGrainType = this.updateGrainType.bind(this);
 		this.getGrainFields = this.getGrainFields.bind(this);
 		this.getGrainInput = this.getGrainInput.bind(this);
 		this.addRow = this.addRow.bind(this);
+	}
+
+	componentWillMount() {
+		if(!this.props.grains.length) {
+			this.props.updateFunc([this.getEmptyGrainData]);
+		}
 	}
 
 	getEmptyGrainData() {
@@ -41,24 +43,17 @@ class GrainTable extends Component {
 	}
 
 	updateGrainType(index, value) {
-		console.log(this.state);
-		console.log(typeof this.state.grains);
-		const grains = this.state.grains.slice(0);
-		grains[index] = Object.assign({}, grains[index], this.props.grainsAvailable[value], {index});
-		this.setState({grains});
-		if(typeof this.props.updateFunc === 'function') {
-			this.props.updateFunc(grains);
-		}
+		const grains = this.props.grains.slice(0);
+		grains[index] = Object.assign({}, grains[index], this.props.grainsAvailable[value], {index: value});
+		this.props.updateFunc(grains);
 		console.log(grains);
 	}
 
 	updateWeight(index, value) {
-		const grains = this.state.grains.slice(0);
+		const grains = this.props.grains.slice(0);
+		console.log(grains);
 		grains[index] = Object.assign({}, grains[index], {weight: value});
-		this.setState({grains});
-		if(typeof this.props.updateFunc === 'function') {
-			this.props.updateFunc(grains);
-		}
+		this.props.updateFunc(grains);
 		console.log(grains);
 	}
 
@@ -82,16 +77,17 @@ class GrainTable extends Component {
 	}
 
 	addRow() {
-		this.setState({
-			grains: this.state.grains.slice(0).push(this.getEmptyGrainData())
-		});
+		const grains = this.props.grains.slice(0);
+		console.log(grains);
+		grains.push(this.getEmptyGrainData());
+		this.props.updateFunc(grains);
 	}
 
 	render() {
 		const className = this.props.className ? `${styles.content} ${this.props.className}` : styles.content;
 		return (
 			<div className={className}>
-				{this.state.grains.map((grainData, index) => this.getGrainInput(grainData, index))}
+				{this.props.grains.map((grainData, index) => this.getGrainInput(grainData, index))}
 				<button onClick={this.addRow}>Add row</button>
 			</div>
 		);

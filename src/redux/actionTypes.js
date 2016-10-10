@@ -4,5 +4,7 @@
 **/
 
 export default {
-	setDummy: 'setDummy'
+	setDummy: 'setDummy',
+	setGrain: 'setGrain',
+	setVolume: 'setVolume'
 };
