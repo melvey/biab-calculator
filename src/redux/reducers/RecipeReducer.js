@@ -10,14 +10,14 @@ const defaultState = {
 	grains: [],
 	hops: [],
 	adjuncts: []
-}
+};
 
 function handleSetGrain(state, data) {
-	return Object.assign({}, state, {grain: data});
+	return Object.assign({}, state, {grains: data});
 }
 
 function handleSetVolume(state, data) {
-	return Object.assign({}, state, {volume: volume});
+	return Object.assign({}, state, {volume: data});
 }
 
 export default function setRecipeReducer(state, action) {

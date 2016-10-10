@@ -28,7 +28,7 @@ class GrainTable extends Component {
 
 	componentWillMount() {
 		if(!this.props.grains.length) {
-			this.props.updateFunc([this.getEmptyGrainData]);
+			this.props.updateFunc([this.getEmptyGrainData()]);
 		}
 	}
 
@@ -51,7 +51,6 @@ class GrainTable extends Component {
 
 	updateWeight(index, value) {
 		const grains = this.props.grains.slice(0);
-		console.log(grains);
 		grains[index] = Object.assign({}, grains[index], {weight: value});
 		this.props.updateFunc(grains);
 		console.log(grains);
@@ -59,7 +58,7 @@ class GrainTable extends Component {
 
 	getGrainFields(graindata, index) {
 		return (<div className={styles.grainField}>
-			<select value={graindata.index || ""} onChange={(event) => this.updateGrainType(index, event.target.value)}>
+			<select value={graindata.index || ''} onChange={(event) => this.updateGrainType(index, event.target.value)}>
 				<option value="">Select grain</option>
 				{ this.props.grainsAvailable.map((aGrain, grainIndex) => <option value={grainIndex} key={`option${grainIndex}`}>{aGrain.name}</option>)}
 			</select>

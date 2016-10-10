@@ -16,12 +16,12 @@ class RecipeForm extends Component {
 			volume: PropTypes.number,
 			grains: PropTypes.array
 		}),
-		updateGrains: PropTypes.func
+		updateGrains: PropTypes.func,
+		updateVolume: PropTypes.func
 	};
 
 	constructor(props) {
 		super();
-
 		this.props = props;
 		this.state = {
 			name: '',
@@ -39,13 +39,11 @@ class RecipeForm extends Component {
 			}
 		};
 
-		this.updateGrains = this.updateGrains.bind(this);
 	}
 
 	render() {
 		const className = this.props.className ? `${styles.content} ${this.props.className}` : styles.content;
 
-		console.log(styles);
 		return (
 			<div className={className}>
 				<div className={styles.inputs}>
@@ -62,13 +60,14 @@ class RecipeForm extends Component {
 						</span>
 						<span className={styles.volumeField}>
 							<label htmlFor={this.state.inputIds.volume}>volume</label>
-							<input type="text" id={this.state.inputIds.volume} />
+							<input type="number" id={this.state.inputIds.volume} onChange={(evt) => this.props.updateVolume(evt.target.value)} />
 							<span className={styles.inputTail}>Litres</span>
 						</span>
 					</div>
 					<GrainTable grains={this.props.recipe.grains} grainsAvailable={this.props.grains} updateFunc={this.props.updateGrains} />
 				</div>
 				<div className={styles.results}>
+					<div>OG: {this.props.metrics.og}</div>
 				</div>
 			</div>
 		);
