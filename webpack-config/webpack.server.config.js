@@ -1,7 +1,25 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var nodeExternals = require('webpack-node-externals');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+//var nodeExternals = require('webpack-node-externals');
+var merge = require('lodash.merge');
+var fs = require('fs');
+var BaseConfig = require('./webpack.base.config');
 
-module.exports = {
+// Exclude node_modules directory
+function getNodeModules() {
+	var nodeModules = {};
+	fs.readdirSync('node_modules')
+		.filter(function(x) {
+			return ['.bin'].indexOf(x) === -1;
+		})
+		.forEach(function(mod) {
+			//nodeModules[mod] = true;
+			nodeModules[mod] = 'commonjs ' + mod;
+		});
+	return nodeModules;
+}
+
+var ServerTemplate = {
 	entry: ['babel-polyfill', './src/server.js'],
 	output: {
 		publicPath: '/',
@@ -9,13 +27,17 @@ module.exports = {
 		filename: '../server.js'
 	},
 	target: 'node',
-	externals: [nodeExternals()],
 	node: {
 		__dirname: false,
 		__filename: false
 	},
+	externals: [getNodeModules()],
+	//externals: [nodeExternals()],
 	plugins: [
-		new ExtractTextPlugin('style.css')
+		new ExtractTextPlugin('style.css'),
+		new CopyWebpackPlugin([
+				{from: 'src/public'}
+		])
 	],
 	module: {
 		loaders: [
@@ -36,3 +58,9 @@ module.exports = {
 		]
 	}
 };
+
+
+var serverConfig = merge({}, BaseConfig, ServerTemplate);
+serverConfig.module.loaders = BaseConfig.module.loaders.concat(ServerTemplate.module.loaders);
+
+module.exports = serverConfig;
