@@ -16,8 +16,13 @@ describe('Calculate gravity', () => {
 			adjuncts: [],
 			hops: []
 		};
+		const settings = {
+			efficiency: 0.85,
+			dryWeight: 0.994837
+		};
 
-		const gravity = calculateGravity(recipe);
+		const gravity = Math.round(calculateGravity(recipe, settings) * 1000) / 1000;
+
 		expect(gravity).to.be.equal(1.055);
 	});
 
