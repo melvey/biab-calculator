@@ -1,6 +1,5 @@
 /* eslint no-magic-numbers: 0 */
 import {expect} from 'chai';
-import {getOriginalGravity} from '../src/lib/GravityCalculator';
 import getIBUs, {getTinsethUtilisation} from '../src/lib/getIBUs';
 
 /**
@@ -14,57 +13,6 @@ function roundToDecimal(number, places = 3) {
 	return Math.round(number * multiplier) / multiplier;
 }
 
-describe('Calculate gravity', () => {
-	it('Calculate gravity for single malt', () => {
-		let recipe = {
-			volume: 5,
-			grains: [
-				{
-					name: 'Pilsner Malt',
-					ebc: 4,
-					potential: 1.038,
-					weight: 1
-				}
-			],
-			adjuncts: [],
-			hops: []
-		};
-		let settings = {
-			efficiency: 0.85,
-			dryWeight: 0.994837
-		};
-
-		let gravity = roundToDecimal(getOriginalGravity(recipe, settings), 3);
-
-		expect(gravity).to.be.equal(1.055);
-
-		/*
-		// Calculation from http://www.homebrewtalk.com/showthread.php?t=540961
-		recipe = {
-			volume: 3.785,
-			grains: [
-				{
-					name: 'Pale Malt',
-					ebc: 4,
-					potential: 1.36288,
-					weight: 0.4536
-				}
-			],
-			adjuncts: [],
-			hops: []
-		};
-		settings = {
-			efficiency: 0.85,
-			dryWeight: 0.994837
-		};
-
-		gravity = Math.round(getOriginalGravity(recipe, settings) * 1000) / 1000;
-
-		expect(gravity).to.be.equal(1.037);
-		*/
-	});
-
-});
 
 describe('Calculate bitterness', () => {
 	it('Calculate Tinseth’s hop utilisation factor', () => {

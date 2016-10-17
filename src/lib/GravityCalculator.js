@@ -22,6 +22,39 @@ function getOriginalGravity(recipe, options = {}) {
 	return gravity;
 }
 
+const abvFactor = 131;
+
+/**
+* Get the alcohol content based on gravity difference
+* @param {number} og The starting gravity for the beer
+* @param {number} fg The finishing gravity for the beer
+* @return {number} The alcohol percentage (between 0 and 1)
+**/
+function getAlcohol(og, fg) {
+	return (og - fg) * abvFactor;
+}
+
+
+function getFinalGravity(og, yeast) {
+	let attenuation = yeast.attenuation.base;
+	if(attenuation > 1) {
+		attenuation /= 100;
+	}
+
+	let fg = 1 + ((og - 1) * (1 - attenuation));
+
+	if(
+		yeast.maxAlcohol !== null
+		&& yeast.maxAlcohol > 0
+		&& getAlcohol(og, fg) > yeast.maxAlcohol
+	) {
+		console.log('TOO STRONG');
+		const diff = (yeast.maxAlcohol / abvFactor);
+		fg = og - diff;
+	}
+	return fg;
+}
+
 /**
  * get points per kilogram per litre
  * @param {Object} recipe The recipe to calculate ppKgPl for
@@ -62,6 +95,7 @@ function getPpg(recipe, options = {}) {
 
 
 export {getOriginalGravity};
+export {getFinalGravity};
 export {getPpKgPl};
 export {getPpg};
 
