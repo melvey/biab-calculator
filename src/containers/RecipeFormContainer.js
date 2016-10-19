@@ -5,7 +5,7 @@ import RecipeForm from '../components/RecipeForm';
 import grainData from '../data/grains.json';
 import setGrainAction from '../redux/actions/SetGrainAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
-import {calculateGravity} from '../lib/RecipeFunctions';
+import {getOriginalGravity} from '../lib/GravityCalculator';
 
 class RecipeFormContainer extends Component {
 
@@ -27,10 +27,9 @@ class RecipeFormContainer extends Component {
 	}
 
 	componentWillReceiveProps(props) {
-		console.log(props);
 		// There is no gurantee the props actually change but a deep comparison of the states is probably more expensive than just recalculating the metrics
 		this.setState({
-			og: calculateGravity(props.recipe)
+			og: getOriginalGravity(props.recipe)
 		});
 		this.props = props;
 	}

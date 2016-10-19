@@ -6,7 +6,7 @@
 import actionTypes from '../actionTypes';
 
 const defaultState = {
-	volume: 0,
+	volume: 20,
 	grains: [],
 	hops: [],
 	adjuncts: []

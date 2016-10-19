@@ -60,7 +60,7 @@ class RecipeForm extends Component {
 						</span>
 						<span className={styles.volumeField}>
 							<label htmlFor={this.state.inputIds.volume}>volume</label>
-							<input type="number" id={this.state.inputIds.volume} onChange={(evt) => this.props.updateVolume(evt.target.value)} />
+							<input type="number" id={this.state.inputIds.volume} value={this.props.recipe.volume} onChange={(evt) => this.props.updateVolume(evt.target.value)} />
 							<span className={styles.inputTail}>Litres</span>
 						</span>
 					</div>
