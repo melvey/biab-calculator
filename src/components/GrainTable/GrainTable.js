@@ -86,6 +86,7 @@ class GrainTable extends Component {
 		const className = this.props.className ? `${styles.content} ${this.props.className}` : styles.content;
 		return (
 			<div className={className}>
+				<h3>Grains</h3>
 				{this.props.grains.map((grainData, index) => this.getGrainInput(grainData, index))}
 				<button onClick={this.addRow}>Add row</button>
 			</div>
