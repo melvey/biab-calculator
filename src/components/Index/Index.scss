@@ -1,6 +1,6 @@
 @import '../variables.scss';
 
-:local(.container) {
+.container {
   margin: 0 auto;
   padding: 20px 0;
   max-width: $max-content-width;

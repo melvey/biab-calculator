@@ -25,7 +25,7 @@ var AppTemplate = {
                 include: /src/,
                 loaders: [
                     'style',
-                    'css',
+										'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
                     'autoprefixer?browsers=last 3 versions',
                     'sass?outputStyle=expanded'
                 ]

@@ -1,36 +1,36 @@
 @import '../variables.scss';
 
-:local(.root) {
+.root {
   background: $banner-colour;
   color: $heading-colour;
 }
 
-:local(.container) {
+.container {
   margin: 0 auto;
   padding: 20px 0;
   max-width: $max-content-width;
 	display: flex;
 }
 
-:local(.brand) {
+.brand {
   text-decoration: none;
   font-size: 1.75em; /* ~28px */
 }
 
-:local(.brandTxt) {
+.brandTxt {
   margin-left: 10px;
 }
 
-:local(.nav) {
+.nav {
   float: right;
   margin-top: 6px;
 }
 
-:local(.banner) {
+.banner {
   text-align: center;
 }
 
-:local(.bannerTitle) {
+.bannerTitle {
   margin: 0;
   padding: 5px;
   font-weight: normal;
@@ -38,7 +38,7 @@
   line-height: 1em;
 }
 
-:local(.bannerDesc) {
+.bannerDesc {
   padding: 0;
   color: rgba(255, 255, 255, .5);
   font-size: 1.25em;
