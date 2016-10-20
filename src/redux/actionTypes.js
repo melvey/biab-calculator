@@ -6,5 +6,6 @@
 export default {
 	setDummy: 'setDummy',
 	setGrain: 'setGrain',
-	setVolume: 'setVolume'
+	setVolume: 'setVolume',
+	setHops: 'setHops'
 };

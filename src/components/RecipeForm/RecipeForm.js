@@ -1,7 +1,10 @@
+/* eslint react/forbid-prop-types: 0 */
 import React, {Component, PropTypes} from 'react';
 import uniqueId from 'lodash.uniqueid';
 import GrainTable from '../GrainTable';
+import HopTable from '../HopTable';
 import styles from './RecipeForm.scss';
+
 
 class RecipeForm extends Component {
 
@@ -14,24 +17,21 @@ class RecipeForm extends Component {
 		adjuncts: PropTypes.array,
 		recipe: PropTypes.shape({
 			volume: PropTypes.number,
-			grains: PropTypes.array
+			grains: PropTypes.array,
+			hops: PropTypes.hops
+		}).isRequired,
+		metrics: PropTypes.shape({
+			og: PropTypes.number
 		}),
-		updateGrains: PropTypes.func,
-		updateVolume: PropTypes.func
+		updateGrains: PropTypes.func.isRequired,
+		updateHops: PropTypes.func.isRequired,
+		updateVolume: PropTypes.func.isRequired
 	};
 
 	constructor(props) {
 		super();
 		this.props = props;
 		this.state = {
-			name: '',
-			style: null,
-			volume: 0,
-			grains: [],
-			adjuncts: [],
-			hops: [],
-			yeast: null,
-			bottle: false,
 			inputIds: {
 				name: uniqueId('name'),
 				style: uniqueId('style'),
@@ -65,6 +65,7 @@ class RecipeForm extends Component {
 						</span>
 					</div>
 					<GrainTable grains={this.props.recipe.grains} grainsAvailable={this.props.grains} updateFunc={this.props.updateGrains} />
+					<HopTable hops={this.props.recipe.hops} hopsAvailable={this.props.hops} updateFunc={this.props.updateHops} />
 				</div>
 				<div className={styles.results}>
 					<div>OG: {this.props.metrics.og}</div>

@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import store from '../redux/store';
 import RecipeForm from '../components/RecipeForm';
 import grainData from '../data/grains.json';
+import hopsData from '../data/hops.json';
 import setGrainAction from '../redux/actions/SetGrainAction';
+import setHopsAction from '../redux/actions/SetHopsAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
 import {getOriginalGravity} from '../lib/GravityCalculator';
 
@@ -34,11 +36,15 @@ class RecipeFormContainer extends Component {
 		this.props = props;
 	}
 
-	updateGrains(grains) {
+	static updateGrains(grains) {
 		store.dispatch(setGrainAction(grains));
 	}
 
-	updateVolume(volume) {
+	static updateHops(hops) {
+		store.dispatch(setHopsAction(hops));
+	}
+
+	static updateVolume(volume) {
 		store.dispatch(setVolumeAction(parseInt(volume, 10)));
 	}
 
@@ -46,11 +52,13 @@ class RecipeFormContainer extends Component {
 	render() {
 		return (
 			<RecipeForm
-			{...this.props}
-			metrics={this.state}
-			grains={grainData}
-			updateGrains={this.updateGrains}
-			updateVolume={this.updateVolume}
+				{...this.props}
+				metrics={this.state}
+				grains={grainData}
+				updateGrains={RecipeFormContainer.updateGrains}
+				updateHops={RecipeFormContainer.updateHops}
+				hops={hopsData}
+				updateVolume={RecipeFormContainer.updateVolume}
 			/>
 		);
 	}

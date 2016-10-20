@@ -9,9 +9,12 @@ class GrainTable extends Component {
 			name: PropTypes.string,
 			ebc: PropTypes.number,
 			potential: PropTypes.number
-		})),
-		grains: PropTypes.array,
-		updateFunc: PropTypes.func
+		})).isRequired,
+		grains: PropTypes.arrayOf(PropTypes.shape({
+			ebc: PropTypes.number,
+			weight: PropTypes.number
+		})).isRequired,
+		updateFunc: PropTypes.func.isRequired
 	};
 
 	constructor(props) {
@@ -19,7 +22,6 @@ class GrainTable extends Component {
 
 		this.props = props;
 
-		this.getEmptyGrainData = this.getEmptyGrainData.bind(this);
 		this.updateGrainType = this.updateGrainType.bind(this);
 		this.getGrainFields = this.getGrainFields.bind(this);
 		this.getGrainInput = this.getGrainInput.bind(this);
@@ -28,11 +30,11 @@ class GrainTable extends Component {
 
 	componentWillMount() {
 		if(!this.props.grains.length) {
-			this.props.updateFunc([this.getEmptyGrainData()]);
+			this.props.updateFunc([GrainTable.getEmptyGrainData()]);
 		}
 	}
 
-	getEmptyGrainData() {
+	static getEmptyGrainData() {
 		return {
 			index: null,
 			name: '',
@@ -46,14 +48,12 @@ class GrainTable extends Component {
 		const grains = this.props.grains.slice(0);
 		grains[index] = Object.assign({}, grains[index], this.props.grainsAvailable[value], {index: value});
 		this.props.updateFunc(grains);
-		console.log(grains);
 	}
 
 	updateWeight(index, value) {
 		const grains = this.props.grains.slice(0);
 		grains[index] = Object.assign({}, grains[index], {weight: value});
 		this.props.updateFunc(grains);
-		console.log(grains);
 	}
 
 	getGrainFields(graindata, index) {
@@ -69,7 +69,7 @@ class GrainTable extends Component {
 		return (<div className={styles.grainRow} key={index}>
 			{this.getGrainFields(grainData, index)}
 			<div className={styles.weightField}>
-				<input type="number" onChange={(event) => this.updateWeight(index, event.target.value)} />
+				<input type="number" value={grainData.weight} onChange={(event) => this.updateWeight(index, event.target.value)} />
 				Kg
 			</div>
 		</div>);
@@ -77,8 +77,7 @@ class GrainTable extends Component {
 
 	addRow() {
 		const grains = this.props.grains.slice(0);
-		console.log(grains);
-		grains.push(this.getEmptyGrainData());
+		grains.push(GrainTable.getEmptyGrainData());
 		this.props.updateFunc(grains);
 	}
 

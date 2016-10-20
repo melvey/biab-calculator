@@ -44,6 +44,7 @@
 		"use-isnan": 2, //disallow comparisons with the value NaN (recommended)
 		"valid-jsdoc": 2, //Ensure JSDoc comments are valid
 		"valid-typeof": 2, //Ensure that the results of typeof are compared against a valid string (recommended)
+		"no-tabs": 0,
 
 		// Best practices
 		"accessor-pairs": 2, //Enforces getter/setter pairs in objects
@@ -255,6 +256,7 @@
 		"react/jsx-indent-props": [1, "tab"],
 		"react/jsx-boolean-value": 2,
 		"react/jsx-no-duplicate-props": 2,
+		"react/no-unused-prop-types": 0, // This rule isn't clever enough to follow variables passed to functions so gives heaps of false positives
 		"react/sort-comp": 0,
 		"react/prop-types": [2, { "ignore": [
 			"children",
