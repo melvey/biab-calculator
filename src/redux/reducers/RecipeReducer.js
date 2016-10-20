@@ -9,7 +9,13 @@ const defaultState = {
 	volume: 20,
 	grains: [],
 	hops: [],
-	adjuncts: []
+	adjuncts: [],
+	yeast: {
+		name: '',
+		attenuation: {
+			base: 0
+		}
+	}
 };
 
 function handleSetGrain(state, data) {

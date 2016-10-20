@@ -4,6 +4,7 @@ import store from '../redux/store';
 import RecipeForm from '../components/RecipeForm';
 import grainData from '../data/grains.json';
 import hopsData from '../data/hops.json';
+import yeastData from '../data/yeasts.json';
 import setGrainAction from '../redux/actions/SetGrainAction';
 import setHopsAction from '../redux/actions/SetHopsAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
@@ -62,6 +63,7 @@ class RecipeFormContainer extends Component {
 				updateGrains={RecipeFormContainer.updateGrains}
 				updateHops={RecipeFormContainer.updateHops}
 				hops={hopsData}
+				yeasts={yeastData}
 				updateVolume={RecipeFormContainer.updateVolume}
 			/>
 		);

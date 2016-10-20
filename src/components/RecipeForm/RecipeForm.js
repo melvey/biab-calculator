@@ -41,6 +41,14 @@ class RecipeForm extends Component {
 
 	}
 
+	updateYeastType(yeast) {
+		console.log(yeast);
+	}
+
+	updateYeastAttenuation(attenuation) {
+		console.log(attenuation);
+	}
+
 	render() {
 		const className = this.props.className ? `${styles.content} ${this.props.className}` : styles.content;
 
@@ -66,6 +74,14 @@ class RecipeForm extends Component {
 					</div>
 					<GrainTable grains={this.props.recipe.grains} grainsAvailable={this.props.grains} updateFunc={this.props.updateGrains} />
 					<HopTable hops={this.props.recipe.hops} hopsAvailable={this.props.hops} updateFunc={this.props.updateHops} />
+					<div className={styles.yeastContainer}>
+						<select value={this.props.recipe.yeast.index || ''} onChange={(event) => this.updateYeastType(this.props.yeastAvailable[parseInt(event.target.value, 10)])}>
+							<option value="">Select Yeast</option>
+							{this.props.yeasts.map((aYeast, yeastIndex) => <option value={yeastIndex} key={`yeast${yeastIndex}`}>{aYeast.name}</option>)}
+						</select>
+						<label htmlFor={this.state.inputIds.yeastAttenuation}>Attenuation:</label>
+						<input type="number" id={this.state.inputIds.yeastAttenuation} value={this.props.recipe.yeast.attenuation.base} onChange={(event) => this.updateYeastAttenuation(event.target.value)} />
+					</div>
 				</div>
 				<div className={styles.results}>
 
