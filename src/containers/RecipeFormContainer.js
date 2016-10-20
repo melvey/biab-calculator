@@ -8,6 +8,7 @@ import yeastData from '../data/yeasts.json';
 import setGrainAction from '../redux/actions/SetGrainAction';
 import setHopsAction from '../redux/actions/SetHopsAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
+import setYeastAction from '../redux/actions/SetYeastAction';
 import {getOriginalGravity} from '../lib/GravityCalculator';
 import getIBUs from '../lib/getIBUs';
 
@@ -53,6 +54,10 @@ class RecipeFormContainer extends Component {
 		store.dispatch(setVolumeAction(parseInt(volume, 10)));
 	}
 
+	static updateYeast(yeast) {
+		store.dispatch(setYeastAction(yeast));
+	}
+
 
 	render() {
 		return (
@@ -64,6 +69,7 @@ class RecipeFormContainer extends Component {
 				updateHops={RecipeFormContainer.updateHops}
 				hops={hopsData}
 				yeasts={yeastData}
+				updateYeast={RecipeFormContainer.updateYeast}
 				updateVolume={RecipeFormContainer.updateVolume}
 			/>
 		);

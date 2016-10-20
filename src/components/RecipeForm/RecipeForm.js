@@ -18,13 +18,19 @@ class RecipeForm extends Component {
 		recipe: PropTypes.shape({
 			volume: PropTypes.number,
 			grains: PropTypes.array,
-			hops: PropTypes.hops
+			hops: PropTypes.array,
+			yeast: PropTypes.shape({
+				attenuation: PropTypes.shape({
+					base: PropTypes.number
+				}).isRequired
+			}).isRequired
 		}).isRequired,
 		metrics: PropTypes.shape({
 			og: PropTypes.number
 		}),
 		updateGrains: PropTypes.func.isRequired,
 		updateHops: PropTypes.func.isRequired,
+		updateYeast: PropTypes.func.isRequired,
 		updateVolume: PropTypes.func.isRequired
 	};
 
@@ -41,12 +47,18 @@ class RecipeForm extends Component {
 
 	}
 
-	updateYeastType(yeast) {
-		console.log(yeast);
+	updateYeastType(index) {
+		const intIndex = parseInt(index, 10);
+		const yeast = Object.assign(
+			{},
+			this.props.yeasts[intIndex],
+			{index: intIndex}
+		);
+		this.props.updateYeast(yeast);
 	}
 
 	updateYeastAttenuation(attenuation) {
-		console.log(attenuation);
+		this.props.updateYeast(Object.assign({}, this.props.recipe.yeast, {attenuation: {base: parseInt(attenuation, 10)}}));
 	}
 
 	render() {
@@ -75,7 +87,7 @@ class RecipeForm extends Component {
 					<GrainTable grains={this.props.recipe.grains} grainsAvailable={this.props.grains} updateFunc={this.props.updateGrains} />
 					<HopTable hops={this.props.recipe.hops} hopsAvailable={this.props.hops} updateFunc={this.props.updateHops} />
 					<div className={styles.yeastContainer}>
-						<select value={this.props.recipe.yeast.index || ''} onChange={(event) => this.updateYeastType(this.props.yeastAvailable[parseInt(event.target.value, 10)])}>
+						<select value={this.props.recipe.yeast.index || ''} onChange={(event) => this.updateYeastType(event.target.value)}>
 							<option value="">Select Yeast</option>
 							{this.props.yeasts.map((aYeast, yeastIndex) => <option value={yeastIndex} key={`yeast${yeastIndex}`}>{aYeast.name}</option>)}
 						</select>

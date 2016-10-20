@@ -7,5 +7,6 @@ export default {
 	setDummy: 'setDummy',
 	setGrain: 'setGrain',
 	setVolume: 'setVolume',
-	setHops: 'setHops'
+	setHops: 'setHops',
+	setYeast: 'setYeast'
 };

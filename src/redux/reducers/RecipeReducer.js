@@ -30,6 +30,10 @@ function handleSetHops(state, data) {
 	return Object.assign({}, state, {hops: data});
 }
 
+function handleSetYeast(state, data) {
+	return Object.assign({}, state, {yeast: data});
+}
+
 export default function setRecipeReducer(state, action) {
 	switch(action.type) {
 		case actionTypes.setGrain:
@@ -38,6 +42,8 @@ export default function setRecipeReducer(state, action) {
 			return handleSetVolume(state, action.payload);
 		case actionTypes.setHops:
 			return handleSetHops(state, action.payload);
+		case actionTypes.setYeast:
+			return handleSetYeast(state, action.payload);
 		default:
 			return state || defaultState;
 	}
