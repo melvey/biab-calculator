@@ -99,6 +99,8 @@ class RecipeForm extends Component {
 
 					<div><span className={styles.metricLabel}>IBU:</span><span className={styles.metricValue}>{this.props.metrics.ibu}</span></div>
 					<div><span className={styles.metricLabel}>OG:</span><span className={styles.metricValue}>{this.props.metrics.og}</span></div>
+					<div><span className={styles.metricLabel}>FG:</span><span className={styles.metricValue}>{this.props.metrics.fg}</span></div>
+					<div><span className={styles.metricLabel}>Alcohol:</span><span className={styles.metricValue}>{this.props.metrics.alcohol}%</span></div>
 				</div>
 			</div>
 		);
