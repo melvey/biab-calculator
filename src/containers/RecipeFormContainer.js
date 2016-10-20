@@ -8,6 +8,7 @@ import setGrainAction from '../redux/actions/SetGrainAction';
 import setHopsAction from '../redux/actions/SetHopsAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
 import {getOriginalGravity} from '../lib/GravityCalculator';
+import getIBUs from '../lib/getIBUs';
 
 class RecipeFormContainer extends Component {
 
@@ -30,8 +31,11 @@ class RecipeFormContainer extends Component {
 
 	componentWillReceiveProps(props) {
 		// There is no gurantee the props actually change but a deep comparison of the states is probably more expensive than just recalculating the metrics
+		const og = getOriginalGravity(props.recipe);
+		const ibu = getIBUs(props.recipe, {og});
 		this.setState({
-			og: getOriginalGravity(props.recipe)
+			og,
+			ibu
 		});
 		this.props = props;
 	}

@@ -39,6 +39,7 @@ class HopTable extends Component {
 			index: null,
 			name: '',
 			aa: 0,
+			time: 0,
 			weight: 0
 		};
 	}
@@ -55,6 +56,12 @@ class HopTable extends Component {
 		this.props.updateFunc(hops);
 	}
 
+	updateTime(index, value) {
+		const hops = this.props.hops.slice(0);
+		hops[index] = Object.assign({}, hops[index], {time: value});
+		this.props.updateFunc(hops);
+	}
+
 	getHopFields(hopdata, index) {
 		return (<div className={styles.hopField}>
 			<select value={hopdata.index || ''} onChange={(event) => this.updateHopType(index, event.target.value)}>
@@ -67,9 +74,13 @@ class HopTable extends Component {
 	getHopInput(hopData, index) {
 		return (<div className={styles.hopRow} key={index}>
 			{this.getHopFields(hopData, index)}
+			<div className={styles.timeField}>
+				<input type="number" value={hopData.time} onChange={(event) => this.updateTime(index, event.target.value)} />
+				mins
+			</div>
 			<div className={styles.weightField}>
 				<input type="number" value={hopData.weight} onChange={(event) => this.updateWeight(index, event.target.value)} />
-				Kg
+				g
 			</div>
 		</div>);
 	}

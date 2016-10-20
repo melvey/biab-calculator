@@ -68,7 +68,9 @@ class RecipeForm extends Component {
 					<HopTable hops={this.props.recipe.hops} hopsAvailable={this.props.hops} updateFunc={this.props.updateHops} />
 				</div>
 				<div className={styles.results}>
-					<div>OG: {this.props.metrics.og}</div>
+
+					<div><span className={styles.metricLabel}>IBU:</span><span className={styles.metricValue}>{this.props.metrics.ibu}</span></div>
+					<div><span className={styles.metricLabel}>OG:</span><span className={styles.metricValue}>{this.props.metrics.og}</span></div>
 				</div>
 			</div>
 		);
