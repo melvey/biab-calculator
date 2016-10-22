@@ -52,7 +52,8 @@ class HopTable extends Component {
 
 	updateWeight(index, value) {
 		const hops = this.props.hops.slice(0);
-		hops[index] = Object.assign({}, hops[index], {weight: value});
+		const weight = parseInt(value, 10);
+		hops[index] = Object.assign({}, hops[index], {weight});
 		this.props.updateFunc(hops);
 	}
 

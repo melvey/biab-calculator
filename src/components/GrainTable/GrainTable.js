@@ -52,7 +52,8 @@ class GrainTable extends Component {
 
 	updateWeight(index, value) {
 		const grains = this.props.grains.slice(0);
-		grains[index] = Object.assign({}, grains[index], {weight: value});
+		const weight = parseInt(value, 10);
+		grains[index] = Object.assign({}, grains[index], {weight});
 		this.props.updateFunc(grains);
 	}
 

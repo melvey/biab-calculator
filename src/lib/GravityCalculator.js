@@ -96,7 +96,6 @@ function getPpg(recipe, options = {}) {
 
 export {getOriginalGravity};
 export {getFinalGravity};
-export {getAlcohol};
 export {getPpKgPl};
 export {getPpg};
 
