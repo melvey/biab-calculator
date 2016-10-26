@@ -1,0 +1,6 @@
+{
+  "name": "BrewConfiguration",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./BrewConfiguration.js"
+}
