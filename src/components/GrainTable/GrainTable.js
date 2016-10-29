@@ -52,7 +52,7 @@ class GrainTable extends Component {
 
 	updateWeight(index, value) {
 		const grains = this.props.grains.slice(0);
-		const weight = parseInt(value, 10);
+		const weight = parseFloat(value, 10);
 		grains[index] = Object.assign({}, grains[index], {weight});
 		this.props.updateFunc(grains);
 	}
@@ -70,7 +70,7 @@ class GrainTable extends Component {
 		return (<div className={styles.grainRow} key={index}>
 			{this.getGrainFields(grainData, index)}
 			<div className={styles.weightField}>
-				<input type="number" value={grainData.weight} onChange={(event) => this.updateWeight(index, event.target.value)} />
+				<input type="number" min="0" step="any" value={grainData.weight} onChange={(event) => this.updateWeight(index, event.target.value)} />
 				Kg
 			</div>
 		</div>);
