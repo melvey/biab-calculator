@@ -1,25 +1,48 @@
-import React, { Component } from 'react';
-import styles from './Header.scss';
+import React, {Component} from 'react';
 import {Link} from 'react-router';
+import BrewConfiguration from '../BrewConfiguration';
+import styles from './Header.scss';
 import logo from './hops.svg';
+import cogImage from './cog.svg';
 
 class Header extends Component {
 
-  render() {
+	constructor(props) {
+		super();
+		this.props = props;
+
+		this.state = {
+			settingsOn: false
+		};
+
+		this.toggleSettings = this.toggleSettings.bind(this);
+	}
+
+	toggleSettings() {
+		this.setState({settingsOn: !this.state.settingsOn});
+	}
+
+
+	render() {
 		return (
-				<div className={styles.root}>
-					<div className={styles.container}>
-						<Link to="/" className={styles.brand}>
-							<img src={logo} width="60" height="60" alt="BIAB Recipe Maker" />
-						</Link>
-						<div className={styles.banner}>
-							<h1 className={styles.bannerTitle}>BIAB Recipe Maker</h1>
-							<p className={styles.bannerDesc}>For your recipies and stuff</p>
-						</div>
+			<div className={styles.root}>
+				<div className={styles.container}>
+					<Link to="/" className={styles.brand}>
+						<img src={logo} width="60" height="60" alt="BIAB Recipe Maker" />
+					</Link>
+					<div className={styles.banner}>
+						<h1 className={styles.bannerTitle}>BIAB Recipe Maker</h1>
+						<p className={styles.bannerDesc}>For your recipies and stuff</p>
 					</div>
 				</div>
+
+				<div className={styles.options}>
+					<button className={styles.settingsBtn} onClick={this.toggleSettings}><img src={cogImage} /></button>
+				</div>
+				{this.state.settingsOn ? <BrewConfiguration className={styles.modal} updateFunc={(evt) => console.log(evt)} settings={{efficiency: 1, grainDryWeight: 1, noChillTime: 1}} /> : null}
+			</div>
 		);
-  }
+	}
 
 }
 

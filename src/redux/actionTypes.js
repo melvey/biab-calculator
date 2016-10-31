@@ -8,5 +8,6 @@ export default {
 	setGrain: 'setGrain',
 	setVolume: 'setVolume',
 	setHops: 'setHops',
-	setYeast: 'setYeast'
+	setYeast: 'setYeast',
+	setSettings: 'setSettings'
 };
