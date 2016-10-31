@@ -37,9 +37,9 @@ class Header extends Component {
 				</div>
 
 				<div className={styles.options}>
-					<button className={styles.settingsBtn} onClick={this.toggleSettings}><img src={cogImage} /></button>
+					<button className={styles.settingsBtn} onClick={this.toggleSettings}><img src={cogImage} alt="Settings button" /></button>
 				</div>
-				{this.state.settingsOn ? <BrewConfiguration className={styles.modal} updateFunc={(evt) => console.log(evt)} settings={{efficiency: 1, grainDryWeight: 1, noChillTime: 1}} /> : null}
+				{this.state.settingsOn ? <BrewConfiguration className={styles.configModal} updateFunc={(evt) => console.log(evt)} settings={{efficiency: 75, grainDryWeight: 97, noChillTime: 40}} /> : null}
 			</div>
 		);
 	}

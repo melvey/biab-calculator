@@ -22,6 +22,10 @@ class BrewConfiguration extends Component {
 			dryWeightId: 'brew_configuration-dryweight-input',
 			nochillId: 'brew_configuration-nochill-input'
 		};
+
+		this.updateEfficiency = this.updateEfficiency.bind(this);
+		this.updateDryWeight = this.updateDryWeight.bind(this);
+		this.updateNoChill = this.updateNoChill.bind(this);
 	}
 
 	updateEfficiency(evt) {
@@ -39,16 +43,16 @@ class BrewConfiguration extends Component {
 		return (
 			<div className={className}>
 				<div className={styles.row}>
-					<label htmlFor={this.state.efficiencyId}>Efficiency %</label>
-					<input type="number" id={this.state.efficiencyID} value={this.props.settings.efficiency} onChange={this.updateEfficiency} />
+					<label htmlFor={this.state.efficiencyId}>Efficiency</label>
+					<input type="number" id={this.state.efficiencyID} value={this.props.settings.efficiency} onChange={this.updateEfficiency} />%
 				</div>
 				<div className={styles.row}>
-					<label htmlFor={this.state.dryWeightId}>Grain Dry Weight %</label>
-					<input type="number" id={this.state.dryWeightId} value={this.props.settings.grainDryWeight} onChange={this.updateDryWeight} />
+					<label htmlFor={this.state.dryWeightId}>Grain Dry Weight</label>
+					<input type="number" id={this.state.dryWeightId} value={this.props.settings.grainDryWeight} onChange={this.updateDryWeight} />%
 				</div>
 				<div className={styles.row}>
 					<label htmlFor={this.state.nochillId}>No chill time factor</label>
-					<input type="number" id={this.state.nochillId} value={this.props.settings.noChillTime} onChange={this.updateNoChill} />
+					<input type="number" id={this.state.nochillId} value={this.props.settings.noChillTime} onChange={this.updateNoChill} />mins
 				</div>
 			</div>
 		);

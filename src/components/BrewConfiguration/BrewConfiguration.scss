@@ -1,1 +1,16 @@
 @import '../variables.scss';
+
+.content {
+  background: $banner-colour;
+  color: $heading-colour;
+	padding: 4px;
+}
+
+.row {
+	label {
+		width: 50px;
+	}
+	input {
+		width: 40px;
+	}
+}
