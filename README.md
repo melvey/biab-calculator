@@ -1,4 +1,6 @@
 # Beer in a bag recipe calculator
+[![Build Status](https://travis-ci.org/melvey/biab-calculator.svg?branch=master)](https://travis-ci.org/melvey/biab-calculator)
+
 A recipe calculator for beer in a bag brewing. Currently a work in progress.
 
 ## To build
