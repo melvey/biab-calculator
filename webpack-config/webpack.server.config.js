@@ -24,7 +24,7 @@ var ServerTemplate = {
 	output: {
 		publicPath: '/',
 		path: 'build/public',
-		filename: '../server.js'
+		filename: '../start.js'
 	},
 	target: 'node',
 	node: {
