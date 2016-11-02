@@ -5,7 +5,9 @@
 
 import {combineReducers} from 'redux';
 import recipeReducer from './RecipeReducer';
+import settingsReducer from './SettingsReducer';
 
 export default combineReducers({
+	settings: settingsReducer,
 	recipe: recipeReducer
 });

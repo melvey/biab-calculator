@@ -33,8 +33,8 @@ class RecipeFormContainer extends Component {
 
 	componentWillReceiveProps(props) {
 		// There is no gurantee the props actually change but a deep comparison of the states is probably more expensive than just recalculating the metrics
-		const og = getOriginalGravity(props.recipe);
-		const fg = getFinalGravity(og, props.recipe.yeast);
+		const og = getOriginalGravity(props.recipe, props.settings);
+		const fg = getFinalGravity(og, props.recipe.yeast, props.settings);
 		const alcohol = getAlcohol(og, fg);
 		const ibu = getIBUs(props.recipe, {og});
 		this.setState({
@@ -82,7 +82,8 @@ class RecipeFormContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	recipe: state.recipe
+	recipe: state.recipe,
+	settings: state.settings
 });
 
 

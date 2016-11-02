@@ -12,8 +12,8 @@ function handleSetSettings(store, data) {
 export default function setsettingsReducer(state, action) {
 	const currentState = state || {
 		efficiency: 85,
-		dryGrainWeight: 0.97,
-		noChillTime: 10
+		grainDryWeight: 0.97,
+		noChillTime: 40
 	};
 
 	switch(action.type) {

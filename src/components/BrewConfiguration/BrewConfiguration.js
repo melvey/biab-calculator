@@ -29,13 +29,13 @@ class BrewConfiguration extends Component {
 	}
 
 	updateEfficiency(evt) {
-		this.props.updateFunc(Object.assign({}, this.props.settings, {efficiency: evt.target.value}));
+		this.props.updateFunc(Object.assign({}, this.props.settings, {efficiency: parseFloat(evt.target.value)}));
 	}
 	updateDryWeight(evt) {
-		this.props.updateFunc(Object.assign({}, this.props.settings, {grainDryWeight: evt.target.value}));
+		this.props.updateFunc(Object.assign({}, this.props.settings, {grainDryWeight: parseFloat(evt.target.value)}));
 	}
 	updateNoChill(evt) {
-		this.props.updateFunc(Object.assign({}, this.props.settings, {noChillTime: evt.target.value}));
+		this.props.updateFunc(Object.assign({}, this.props.settings, {noChillTime: parseFloat(evt.target.value)}));
 	}
 
 	render() {

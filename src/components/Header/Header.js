@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import BrewConfiguration from '../BrewConfiguration';
+import BrewConfiguration from '../../containers/BrewConfigurationContainer';
 import styles from './Header.scss';
 import logo from './hops.svg';
 import cogImage from './cog.svg';
 
 class Header extends Component {
-
 	constructor(props) {
 		super();
 		this.props = props;
