@@ -6,6 +6,7 @@ import {match, RouterContext} from 'react-router';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 import indexTemplate from './views/index.jade';
+import grainMiddleware from './api/grain';
 import routes from './routes';
 
 const status = {
@@ -14,6 +15,7 @@ const status = {
 	success: 200,
 	notFound: 404
 };
+const defaultPort = 5000;
 
 
 // Data to send to jade template
@@ -22,9 +24,11 @@ const config = {
 };
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || defaultPort;
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/api/grain', grainMiddleware);
 
 app.use('*', async (req, res) => {
 	// res.render doesn't seem to work with webkit so we use webkit to load the jade template and render it here
