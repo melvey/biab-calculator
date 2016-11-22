@@ -7,6 +7,8 @@ import {Provider} from 'react-redux';
 import store from './redux/store';
 import indexTemplate from './views/index.jade';
 import grainMiddleware from './api/grain';
+import hopsMiddleware from './api/hops';
+import yeastMiddleware from './api/yeast';
 import routes from './routes';
 
 const status = {
@@ -29,6 +31,8 @@ const port = process.env.PORT || defaultPort;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/grain', grainMiddleware);
+app.use('/api/hops', hopsMiddleware);
+app.use('/api/yeast', yeastMiddleware);
 
 app.use('*', async (req, res) => {
 	// res.render doesn't seem to work with webkit so we use webkit to load the jade template and render it here
