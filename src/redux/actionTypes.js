@@ -9,5 +9,8 @@ export default {
 	setVolume: 'setVolume',
 	setHops: 'setHops',
 	setYeast: 'setYeast',
-	setSettings: 'setSettings'
+	setSettings: 'setSettings',
+	setGrainList: 'setGrainList',
+	setHopsList: 'setHopsList',
+	setYeastList: 'setYeastList'
 };
