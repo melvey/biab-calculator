@@ -4,3 +4,4 @@ tmp
 node_modules
 build
 .elasticbeanstalk
+src/config/general.js
