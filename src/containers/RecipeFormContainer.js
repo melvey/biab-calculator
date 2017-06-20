@@ -2,27 +2,41 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import store from '../redux/store';
 import RecipeForm from '../components/RecipeForm';
-import hopsData from '../data/hops.json';
-import yeastData from '../data/yeasts.json';
 import setGrainAction from '../redux/actions/SetGrainAction';
 import setHopsAction from '../redux/actions/SetHopsAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
 import setYeastAction from '../redux/actions/SetYeastAction';
 import setGrainListAction from '../redux/actions/SetGrainListAction';
+import setHopsListAction from '../redux/actions/SetHopsListAction';
+import setYeastListAction from '../redux/actions/SetYeastListAction';
 import {getOriginalGravity, getFinalGravity, getAlcohol} from '../lib/GravityCalculator';
 import getIBUs from '../lib/getIBUs';
 import grainLoader from '../loaders/grainLoader';
+import hopsLoader from '../loaders/hopsLoader';
+import yeastLoader from '../loaders/yeastLoader';
 
 class RecipeFormContainer extends Component {
 
 	static propTypes = {
-		className: PropTypes.string
+		className: PropTypes.string,
+		grainList: PropTypes.arrayOf(PropTypes.shape({
+			name: PropTypes.string,
+			ebc: PropTypes.number,
+			potential: PropTypes.number
+		})),
+		hopsList: PropTypes.arrayOf(PropTypes.shape({
+			name: PropTypes.string,
+			description: PropTypes.string,
+			aa: PropTypes.number
+		})),
+		yeastList: PropTypes.arrayOf(PropTypes.shape({
+			name: PropTypes.string,
+			attenuation: PropTypes.number
+		}))
 	};
 
 	constructor(props) {
 		super();
-
-		console.log(this.props);
 
 		this.state = {
 			og: 0,
@@ -37,6 +51,12 @@ class RecipeFormContainer extends Component {
 	componentDidMount() {
 		if(!this.props.grainList || !this.props.grainList.length) {
 			grainLoader().then((grain) => store.dispatch(setGrainListAction(grain)));
+		}
+		if(!this.props.hopsList || !this.props.hopsList.length) {
+			hopsLoader().then((hops) => store.dispatch(setHopsListAction(hops)));
+		}
+		if(!this.props.yeastList || !this.props.yeastList.length) {
+			yeastLoader().then((yeast) => store.dispatch(setYeastListAction(yeast)));
 		}
 	}
 
@@ -71,8 +91,6 @@ class RecipeFormContainer extends Component {
 		store.dispatch(setYeastAction(yeast));
 	}
 
-
-
 	render() {
 		return (
 			<RecipeForm
@@ -81,8 +99,8 @@ class RecipeFormContainer extends Component {
 				grains={this.props.grainList}
 				updateGrains={RecipeFormContainer.updateGrains}
 				updateHops={RecipeFormContainer.updateHops}
-				hops={hopsData}
-				yeasts={yeastData}
+				hops={this.props.hopsList}
+				yeasts={this.props.yeastList}
 				updateYeast={RecipeFormContainer.updateYeast}
 				updateVolume={RecipeFormContainer.updateVolume}
 			/>
@@ -94,6 +112,8 @@ class RecipeFormContainer extends Component {
 const mapStateToProps = (state) => ({
 	recipe: state.recipe,
 	grainList: state.ingredients.grains || [],
+	hopsList: state.ingredients.hops || [],
+	yeastList: state.ingredients.yeast || [],
 	settings: state.settings
 });
 

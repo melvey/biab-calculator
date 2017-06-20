@@ -6,7 +6,6 @@
 import actionTypes from '../actionTypes';
 
 function handleSetGrainList(state, data) {
-	console.log(data);
   return Object.assign({}, state, {grains: data});
 }
 
@@ -23,9 +22,9 @@ export default function setingredientsReducer(state, action) {
 		case actionTypes.setGrainList:
 			return handleSetGrainList(state, action.payload);
 		case actionTypes.setHopsList:
-			return handleSetHopsList(action.payload);
+			return handleSetHopsList(state, action.payload);
 		case actionTypes.setYeastList:
-			return handleSetYeastList(action.payload);
+			return handleSetYeastList(state, action.payload);
 		default:
 			return state || {};
 	}
