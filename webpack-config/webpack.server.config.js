@@ -1,29 +1,17 @@
+var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-//var nodeExternals = require('webpack-node-externals');
+var nodeExternals = require('webpack-node-externals');
+var webpack = require('webpack');
 var merge = require('lodash.merge');
-var fs = require('fs');
+var config = require('../src/config/general.js');
 var BaseConfig = require('./webpack.base.config');
 
-// Exclude node_modules directory
-function getNodeModules() {
-	var nodeModules = {};
-	fs.readdirSync('node_modules')
-		.filter(function(x) {
-			return ['.bin'].indexOf(x) === -1;
-		})
-		.forEach(function(mod) {
-			//nodeModules[mod] = true;
-			nodeModules[mod] = 'commonjs ' + mod;
-		});
-	return nodeModules;
-}
+ ServerTemplate = {
 
-var ServerTemplate = {
 	entry: ['babel-polyfill', './src/server.js'],
 	output: {
-		publicPath: '/',
-		path: 'build/public',
+		publicPath: config.basePath,
+		path: path.join(__dirname, '../build/public'),
 		filename: '../server.js'
 	},
 	target: 'node',
@@ -31,36 +19,48 @@ var ServerTemplate = {
 		__dirname: false,
 		__filename: false
 	},
-	externals: [getNodeModules()],
-	//externals: [nodeExternals()],
 	plugins: [
-		new ExtractTextPlugin('style.css'),
-		new CopyWebpackPlugin([
-				{from: 'src/public'}
-		])
+		new ExtractTextPlugin({filename: 'style.css'}),
+		new webpack.DefinePlugin({
+			'global.GENTLY': false
+		})
 	],
+	externals: [nodeExternals()],
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.scss$/,
 				include: /src/,
-				loader: ExtractTextPlugin.extract(
-						'style',
-						'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-						'autoprefixer?browsers=last 3 versions',
-						'sass'
-				)
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								sourceMap: true,
+								modules: true,
+								camelCase: true,
+								localIdentName: '[name]__[local]--[hash:base64:5]',
+							}
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true
+							}
+						}
+					]
+				})
 			},
 			{
-				test: /\.jade$/,
-				loader: 'jade'
+				test: /\.pug/,
+				use: 'pug-loader'
 			}
 		]
 	}
 };
 
-
 var serverConfig = merge({}, BaseConfig, ServerTemplate);
-serverConfig.module.loaders = BaseConfig.module.loaders.concat(ServerTemplate.module.loaders);
+serverConfig.module.rules = BaseConfig.module.rules.concat(ServerTemplate.module.rules);
 
 module.exports = serverConfig;
