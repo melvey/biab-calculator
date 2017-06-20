@@ -8,7 +8,6 @@ if(!fs.existsSync('./src/config/general.js')) {
 
 var appConfig = require('./webpack-config/webpack.app.config');
 var serverConfig = require('./webpack-config/webpack.server.config');
-var scriptConfig = require('./webpack-config/webpack.scripts.config');
 
-module.exports = [appConfig, serverConfig, ...scriptConfig];
+module.exports = [appConfig, serverConfig];
 
