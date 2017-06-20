@@ -2,15 +2,16 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import store from '../redux/store';
 import RecipeForm from '../components/RecipeForm';
-import grainData from '../data/grains.json';
 import hopsData from '../data/hops.json';
 import yeastData from '../data/yeasts.json';
 import setGrainAction from '../redux/actions/SetGrainAction';
 import setHopsAction from '../redux/actions/SetHopsAction';
 import setVolumeAction from '../redux/actions/SetVolumeAction';
 import setYeastAction from '../redux/actions/SetYeastAction';
+import setGrainListAction from '../redux/actions/SetGrainListAction';
 import {getOriginalGravity, getFinalGravity, getAlcohol} from '../lib/GravityCalculator';
 import getIBUs from '../lib/getIBUs';
+import grainLoader from '../loaders/grainLoader';
 
 class RecipeFormContainer extends Component {
 
@@ -21,6 +22,8 @@ class RecipeFormContainer extends Component {
 	constructor(props) {
 		super();
 
+		console.log(this.props);
+
 		this.state = {
 			og: 0,
 			fg: 0,
@@ -29,6 +32,12 @@ class RecipeFormContainer extends Component {
 		};
 
 		this.props = props;
+	}
+
+	componentDidMount() {
+		if(!this.props.grainList || !this.props.grainList.length) {
+			grainLoader().then((grain) => store.dispatch(setGrainListAction(grain)));
+		}
 	}
 
 	componentWillReceiveProps(props) {
@@ -63,12 +72,13 @@ class RecipeFormContainer extends Component {
 	}
 
 
+
 	render() {
 		return (
 			<RecipeForm
 				{...this.props}
 				metrics={this.state}
-				grains={grainData}
+				grains={this.props.grainList}
 				updateGrains={RecipeFormContainer.updateGrains}
 				updateHops={RecipeFormContainer.updateHops}
 				hops={hopsData}
@@ -83,6 +93,7 @@ class RecipeFormContainer extends Component {
 
 const mapStateToProps = (state) => ({
 	recipe: state.recipe,
+	grainList: state.ingredients.grains || [],
 	settings: state.settings
 });
 

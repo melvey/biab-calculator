@@ -5,28 +5,23 @@
 
 import actionTypes from '../actionTypes';
 
-function handleSetGrainList(store, data) {
-  return Object.assign({}, store, {setGrainList: data});
+function handleSetGrainList(state, data) {
+	console.log(data);
+  return Object.assign({}, state, {grains: data});
 }
 
-function handleSetHopsList(data) {
-	const newState = {
-		setHopsList: data
-	};
-	return newState;
+function handleSetHopsList(state, data) {
+  return Object.assign({}, state, {hops: data});
 }
 
-function handleSetYeastList(data) {
-	const newState = {
-		setYeastList: data
-	};
-	return newState;
+function handleSetYeastList(state, data) {
+  return Object.assign({}, state, {yeast: data});
 }
 
 export default function setingredientsReducer(state, action) {
 	switch(action.type) {
 		case actionTypes.setGrainList:
-			return handleSetGrainList(store, action.payload);
+			return handleSetGrainList(state, action.payload);
 		case actionTypes.setHopsList:
 			return handleSetHopsList(action.payload);
 		case actionTypes.setYeastList:
