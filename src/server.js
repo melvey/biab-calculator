@@ -1,11 +1,13 @@
 import path from 'path';
 import express from 'express';
+import bodyParser from 'body-parser';
 import React from 'react';
 import ReactDomServer from 'react-dom/server';
 import {match, RouterContext} from 'react-router';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 import indexTemplate from './views/index.jade';
+import userMiddleware from './api/user';
 import grainMiddleware from './api/grain';
 import hopsMiddleware from './api/hops';
 import yeastMiddleware from './api/yeast';
@@ -30,6 +32,9 @@ const port = process.env.PORT || defaultPort;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(bodyParser.json());
+
+app.use('/api/user', userMiddleware);
 app.use('/api/grain', grainMiddleware);
 app.use('/api/hops', hopsMiddleware);
 app.use('/api/yeast', yeastMiddleware);

@@ -47,6 +47,8 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "lodash.uniqueid": "^4.0.1",
@@ -55,6 +57,7 @@
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.0.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "winston": "^2.3.1"
   }
 }
