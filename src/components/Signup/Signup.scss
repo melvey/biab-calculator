@@ -1,0 +1,70 @@
+@import '../variables.scss';
+$header--colour: rgb(70, 70, 70) !default;
+$text--colour: rgb(140, 140, 140) !default;
+$background--colour: rgb(255, 255, 255) !default;
+$border-colour: rgb(40, 40, 40) !default;
+$hightlight--colour: rgb(244, 100, 50);
+
+$signup--padding: 20px;
+$signup--width: 500px;
+
+.form {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: $background--colour;
+
+	input,
+	label {
+		display: block;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	input,
+	button {
+		margin-bottom: 15px;
+	}
+
+	button {
+		background-color: $hightlight--colour;
+	}
+
+	@media(min-width: $signup--width) {
+		width: $signup--width;
+		margin-top: 30px;
+		border: 1px solid $border-colour;
+		border-radius: 4px;
+
+		label,
+		input,
+		button {
+			width: $signup--width - ($signup--padding * 2);
+			margin-right: $signup--padding;
+			margin-left: $signup--padding;
+		}
+
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+}
+
+.header {
+	width: 100%;
+	padding: $signup--padding;
+	border-bottom: 1px solid $border-colour;
+	margin-bottom: 15px;
+
+	h2 {
+		margin: 0;
+		font-size: 1.3em;
+		color: $header--colour;
+	}
+
+	p {
+		margin: 0;
+	}
+}

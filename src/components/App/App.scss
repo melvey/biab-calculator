@@ -165,11 +165,10 @@ textarea {
 }
 
 
-input, select {
+input, select, button {
 	height: 30px;
 	border-radius: 5px;
-	border: 1px solid $highlight-colour;
+	border: 1px solid $text-colour;
 	margin-left: 5px;
 	background-color: $background-colour;
 }
-
