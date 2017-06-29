@@ -1,3 +1,5 @@
 language: node_js
+before_install:
+  - cp src/config/templates/general.js src/config/general.js 
 node_js:
   - '6'
