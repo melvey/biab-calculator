@@ -12,5 +12,7 @@ export default {
 	setSettings: 'setSettings',
 	setGrainList: 'setGrainList',
 	setHopsList: 'setHopsList',
-	setYeastList: 'setYeastList'
+	setYeastList: 'setYeastList',
+	setUset: 'setUset',
+	setMessage: 'setMessage'
 };

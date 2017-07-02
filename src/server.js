@@ -3,12 +3,13 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import passport from 'passport';
+import flash from 'req-flash';
 import React from 'react';
 import ReactDomServer from 'react-dom/server';
 import {match, RouterContext} from 'react-router';
 import {Provider} from 'react-redux';
 import localAuth from './lib/localAuth';
-import store from './redux/store';
+import preloadStore from './loaders/server/preloadStore';
 import indexTemplate from './views/index.jade';
 import userMiddleware from './api/user';
 import grainMiddleware from './api/grain';
@@ -45,12 +46,13 @@ app.use(session({
 }));
 
 // passport authentication
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(localAuth);
 passport.serializeUser((user, done) => done(null, JSON.stringify({username: user.username, email: user.email}), null));
 passport.deserializeUser((user, done) => done(null, (JSON.parse(user), null)));
-app.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}));
+app.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login', failureFlash: true}));
 
 app.use('/api/user', userMiddleware);
 app.use('/api/grain', grainMiddleware);
@@ -65,6 +67,7 @@ app.use('*', async (req, res) => {
 		} else if(redirectLocation) {
 			res.redirect(status.redirect, redirectLocation.pathname + redirectLocation.search);
 		} else if(renderProps) {
+			const store = preloadStore(renderProps, req);
 
 			const routerContext = <Provider store={store}><RouterContext {...renderProps} /></Provider>;
 

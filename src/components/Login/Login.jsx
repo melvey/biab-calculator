@@ -31,9 +31,9 @@ class Login extends Component {
 					</p>
 				</div>
 				<label htmlFor={ids.username}>Username</label>
-				<input type="text" id={ids.username} />
+				<input type="text" id={ids.username} name="username" />
 				<label htmlFor={ids.password}>Password</label>
-				<input type="password" id={ids.password} />
+				<input type="password" id={ids.password} name="password" />
 				<button className={styles.submit} type="submit">Sign up</button>
 			</form>
 		);
