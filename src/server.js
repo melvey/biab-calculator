@@ -67,6 +67,7 @@ app.use('*', async (req, res) => {
 		} else if(redirectLocation) {
 			res.redirect(status.redirect, redirectLocation.pathname + redirectLocation.search);
 		} else if(renderProps) {
+			console.log(req.user);
 			const store = preloadStore(renderProps, req);
 
 			const routerContext = <Provider store={store}><RouterContext {...renderProps} /></Provider>;
@@ -74,6 +75,7 @@ app.use('*', async (req, res) => {
 			const contentHtml = ReactDomServer.renderToString(routerContext);
 
 			const variables = {...config, content: contentHtml};
+			console.log(html);
 			const html = indexTemplate(variables);
 			res.status(status.success).send(html);
 		} else {

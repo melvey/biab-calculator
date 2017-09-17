@@ -5,14 +5,14 @@
 
 import actionTypes from '../actionTypes';
 
-function handleSetUset(state, data) {
-  return Object.assign({}, state, {setUset: data});
+function handleSetUser(state, data) {
+  return Object.assign({}, state, {setUser: data});
 }
 
 export default function setUserReducer(state, action) {
 	switch(action.type) {
-		case actionTypes.setUset:
-			return handleSetUset(state, action.payload);
+		case actionTypes.setUser:
+			return handleSetUser(state, action.payload);
 		default:
 			return state || {};
 	}

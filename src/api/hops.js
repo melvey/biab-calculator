@@ -7,7 +7,6 @@ const app = new Express();
 app.get('/', (req, res) => {
 	connection.then(() => Hops.find())
 	.then((hops) => {
-		console.log(hops);
 		res.send(JSON.stringify(hops));
 
 	}).catch((err) => {

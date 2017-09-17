@@ -1,5 +1,6 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyPlugin = require('copy-webpack-plugin');
 var nodeExternals = require('webpack-node-externals');
 var webpack = require('webpack');
 var merge = require('lodash.merge');
@@ -23,7 +24,12 @@ var BaseConfig = require('./webpack.base.config');
 		new ExtractTextPlugin({filename: 'style.css'}),
 		new webpack.DefinePlugin({
 			'global.GENTLY': false
-		})
+		}),
+		new CopyPlugin([
+			{
+				from: 'src/public',
+			}
+		])
 	],
 	externals: [nodeExternals()],
 	module: {

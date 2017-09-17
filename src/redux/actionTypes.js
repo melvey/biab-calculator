@@ -13,6 +13,6 @@ export default {
 	setGrainList: 'setGrainList',
 	setHopsList: 'setHopsList',
 	setYeastList: 'setYeastList',
-	setUset: 'setUset',
+	setUser: 'setUser',
 	setMessage: 'setMessage'
 };

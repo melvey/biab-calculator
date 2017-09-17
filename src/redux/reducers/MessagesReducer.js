@@ -6,6 +6,7 @@
 import actionTypes from '../actionTypes';
 
 function handleSetMessage(state, data) {
+	console.log('HLLO');
 	console.log(data);
 	return data;
 }
