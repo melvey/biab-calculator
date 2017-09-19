@@ -6,7 +6,7 @@
 import actionTypes from '../actionTypes';
 
 function handleSetUser(state, data) {
-  return Object.assign({}, state, {setUser: data});
+	return data || null;
 }
 
 export default function setUserReducer(state, action) {
@@ -14,6 +14,6 @@ export default function setUserReducer(state, action) {
 		case actionTypes.setUser:
 			return handleSetUser(state, action.payload);
 		default:
-			return state || {};
+			return state || null;
 	}
 }

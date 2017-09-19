@@ -74,8 +74,7 @@ app.use('*', async (req, res) => {
 
 			const contentHtml = ReactDomServer.renderToString(routerContext);
 
-			const variables = {...config, content: contentHtml};
-			console.log(html);
+			const variables = {...config, content: contentHtml, state: JSON.stringify(store.getState())};
 			const html = indexTemplate(variables);
 			res.status(status.success).send(html);
 		} else {
