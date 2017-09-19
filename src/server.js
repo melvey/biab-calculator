@@ -51,7 +51,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(localAuth);
 passport.serializeUser((user, done) => done(null, JSON.stringify({username: user.username, email: user.email}), null));
-passport.deserializeUser((user, done) => done(null, (JSON.parse(user), null)));
+passport.deserializeUser((user, done) => done(null, JSON.parse(user)));
 app.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login', failureFlash: true}));
 
 app.use('/api/user', userMiddleware);
@@ -67,7 +67,7 @@ app.use('*', async (req, res) => {
 		} else if(redirectLocation) {
 			res.redirect(status.redirect, redirectLocation.pathname + redirectLocation.search);
 		} else if(renderProps) {
-			console.log(req.user);
+			console.log("User", req.user);
 			const store = preloadStore(renderProps, req);
 
 			const routerContext = <Provider store={store}><RouterContext {...renderProps} /></Provider>;
