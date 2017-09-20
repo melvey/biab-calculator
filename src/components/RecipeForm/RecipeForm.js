@@ -11,6 +11,7 @@ class RecipeForm extends Component {
 	static propTypes = {
 		className: PropTypes.string,
 		styles: PropTypes.array,
+		authenticated: PropTypes.bool,
 		hops: PropTypes.array,
 		grains: PropTypes.array,
 		yeasts: PropTypes.array,
@@ -31,7 +32,7 @@ class RecipeForm extends Component {
 		updateGrains: PropTypes.func.isRequired,
 		updateHops: PropTypes.func.isRequired,
 		updateYeast: PropTypes.func.isRequired,
-		updateVolume: PropTypes.func.isRequired
+		updateVolume: PropTypes.func
 	};
 
 	constructor(props) {
@@ -102,6 +103,11 @@ class RecipeForm extends Component {
 					<div><span className={styles.metricLabel}>FG:</span><span className={styles.metricValue}>{this.props.metrics.fg}</span></div>
 					<div><span className={styles.metricLabel}>Alcohol:</span><span className={styles.metricValue}>{this.props.metrics.alcohol}%</span></div>
 				</div>
+
+				{ this.props.authenticated && this.props.saveFunc
+					? <button onClick={this.props.saveFunc}>Save</button>
+					: null
+				}
 			</div>
 		);
 	}

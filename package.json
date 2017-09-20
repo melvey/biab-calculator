@@ -55,6 +55,7 @@
     "jade": "^1.11.0",
     "lodash.uniqueid": "^4.0.1",
     "mongoose": "^4.10.7",
+    "mongoose-schema-extend": "^0.2.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "react": "^15.3.1",
