@@ -11,7 +11,7 @@ function handleSetSettings(store, data) {
 
 export default function setsettingsReducer(state, action) {
 	const currentState = state || {
-		efficiency: 85,
+		efficiency: 0.85,
 		grainDryWeight: 0.97,
 		noChillTime: 40
 	};

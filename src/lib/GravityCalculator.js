@@ -52,7 +52,7 @@ function platoToSG(plato) {
  * @return {number} original gravity of the recipe
  **/
 function ianhGravity(recipe, options) {
-	let gravity = 1;
+	let gravity = 0;
 	if(recipe.volume > 0) {
 		const efficiency = options.efficiency || defaultEfficiency;
 		const dryWeight = options.dryWeight || defaultDryWeight;
