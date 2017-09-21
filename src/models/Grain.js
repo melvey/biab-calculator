@@ -14,4 +14,5 @@ const GrainSchema = new mongoose.Schema({
 	}
 });
 
+export {GrainSchema};
 export default mongoose.model('Grain', GrainSchema);

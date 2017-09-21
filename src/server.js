@@ -15,6 +15,7 @@ import userMiddleware from './api/user';
 import grainMiddleware from './api/grain';
 import hopsMiddleware from './api/hops';
 import yeastMiddleware from './api/yeast';
+import recipeMiddleware from './api/recipe';
 import routes from './routes';
 
 const status = {
@@ -58,6 +59,7 @@ app.use('/api/user', userMiddleware);
 app.use('/api/grain', grainMiddleware);
 app.use('/api/hops', hopsMiddleware);
 app.use('/api/yeast', yeastMiddleware);
+app.use('/api/recipe', recipeMiddleware);
 
 app.use('*', async (req, res) => {
 	// res.render doesn't seem to work with webkit so we use webkit to load the jade template and render it here

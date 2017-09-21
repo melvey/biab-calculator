@@ -10,4 +10,5 @@ const HopsSchema = new mongoose.Schema({
 	description: String
 });
 
+export {HopsSchema};
 export default mongoose.model('Hops', HopsSchema);
