@@ -8,8 +8,9 @@ const app = new Express();
 
 app.put('/', (req, res) => {
 	if(req.user) {
+		const recipeData = {...req.body, user: req.user.id};
 		return connection
-		.then(() => new Recipe({...req.body, user: req.user._id}).save())
+		.then(() => new Recipe(recipeData).save())
 		.then((recipe) => res.status(httpCodes.success).json(recipe))
 		.catch((err) => {
 			winston.error(err);

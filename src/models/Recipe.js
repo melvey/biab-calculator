@@ -33,4 +33,4 @@ const RecipeSchema = new Schema({
 	}
 }, { timestamps: {} } );
 
-export default mongoose.model('Recipe', GrainSchema);
+export default mongoose.model('Recipe', RecipeSchema);

@@ -51,7 +51,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(localAuth);
-passport.serializeUser((user, done) => done(null, JSON.stringify({username: user.username, email: user.email}), null));
+passport.serializeUser((user, done) => done(null, JSON.stringify({username: user.username, email: user.email, id: user._id}), null));
 passport.deserializeUser((user, done) => done(null, JSON.parse(user)));
 app.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login', failureFlash: true}));
 
