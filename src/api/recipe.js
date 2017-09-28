@@ -6,6 +6,20 @@ import httpCodes from '../lib/httpCodes';
 
 const app = new Express();
 
+app.get('/:id', async (req, res) => {
+	const id = req.params.id;
+	console.log(id);
+	return Recipe.findById(id)
+		.then((recipe) => {
+			console.log(recipe);
+			res.status(httpCodes.success).json(recipe);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(httpCodes.error).json(err);
+		});
+});
+
 app.put('/', (req, res) => {
 	if(req.user) {
 		const recipeData = {...req.body, user: req.user.id};
