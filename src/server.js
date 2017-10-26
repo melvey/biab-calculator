@@ -6,7 +6,7 @@ import passport from 'passport';
 import flash from 'req-flash';
 import React from 'react';
 import ReactDomServer from 'react-dom/server';
-import {match, RouterContext} from 'react-router';
+import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import localAuth from './lib/localAuth';
 import preloadStore from './loaders/server/preloadStore';
@@ -16,7 +16,7 @@ import grainMiddleware from './api/grain';
 import hopsMiddleware from './api/hops';
 import yeastMiddleware from './api/yeast';
 import recipeMiddleware from './api/recipe';
-import routes from './routes';
+import App from './components/App';
 
 const status = {
 	error: 500,
@@ -62,27 +62,21 @@ app.use('/api/yeast', yeastMiddleware);
 app.use('/api/recipe', recipeMiddleware);
 
 app.use('*', async (req, res) => {
-	// res.render doesn't seem to work with webkit so we use webkit to load the jade template and render it here
-	match({routes, location: req.baseUrl || req.url}, (error, redirectLocation, renderProps) => {
-		if(error) {
-			res.status(status.error).send(error.message);
-		} else if(redirectLocation) {
-			res.redirect(status.redirect, redirectLocation.pathname + redirectLocation.search);
-		} else if(renderProps) {
-			console.log("User", req.user);
-			const store = preloadStore(renderProps, req);
+	console.log("User", req.user);
+	const store = preloadStore(req);
+	const context = {};
 
-			const routerContext = <Provider store={store}><RouterContext {...renderProps} /></Provider>;
+	const routerContext = <Provider store={store}><StaticRouter location={req.url} context={context}><App/></StaticRouter></Provider>;
 
-			const contentHtml = ReactDomServer.renderToString(routerContext);
+	if(context.url) {
+		res.redirect(status.redirect, context.url);
+	} else {
+		const contentHtml = ReactDomServer.renderToString(routerContext);
 
-			const variables = {...config, content: contentHtml, state: JSON.stringify(store.getState())};
-			const html = indexTemplate(variables);
-			res.status(status.success).send(html);
-		} else {
-			res.status(status.notFound).send('Not Found');
-		}
-	});
+		const variables = {...config, content: contentHtml, state: JSON.stringify(store.getState())};
+		const html = indexTemplate(variables);
+		res.status(status.success).send(html);
+	}
 });
 
 app.listen(port, () => {
