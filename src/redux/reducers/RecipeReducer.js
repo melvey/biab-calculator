@@ -6,6 +6,7 @@
 import actionTypes from '../actionTypes';
 
 const defaultState = {
+	loaded: false,
 	volume: 20,
 	grains: [],
 	hops: [],

@@ -1,7 +1,6 @@
 import mongoose, {Schema} from 'mongoose';
-import extend from 'mongoose-schema-extend';
-import {GrainSchema} from './Grain';
-import {HopsSchema} from './Hops';
+import {GrainSchemaBase} from './Grain';
+import {HopsSchemaBase} from './Hops';
 import {YeastSchema} from './Yeast';
 
 const RecipeSchema = new Schema({
@@ -15,17 +14,15 @@ const RecipeSchema = new Schema({
 		ref: 'User'
 	},
 	volume: Number,
-	grains: [
-		GrainSchema.extend({
-			weight: Number
-		})
-	],
-	hops: [
-		HopsSchema.extend({
-			weight: Number,
-			time: Number
-		})
-	],
+	grains: [{
+		...GrainSchemaBase,
+		weight: Number
+	}],
+	hops: [{
+		...HopsSchemaBase,
+		weight: Number,
+		time: Number
+	}],
 	yeast: YeastSchema,
 	createTime: {
 		type: Date,
