@@ -66,7 +66,8 @@ app.use('*', async (req, res) => {
 	const store = preloadStore(req);
 	const context = {};
 
-	const routerContext = <Provider store={store}><StaticRouter location={req.url} context={context}><App/></StaticRouter></Provider>;
+	// req.url is always '/'. This seems to be a problem but advice online is to just use req.originalUrl
+	const routerContext = <Provider store={store}><StaticRouter location={req.originalUrl} context={context}><App/></StaticRouter></Provider>;
 
 	if(context.url) {
 		res.redirect(status.redirect, context.url);

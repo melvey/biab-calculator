@@ -24,10 +24,10 @@ class App extends Component {
 		<div>
 			<Header />
 			<Switch>
-				<Route path="/" component={Index} />
-				<Route path="about" component={About} />
-				<Route path="login" component={Login} />
-				<Route path="signup" component={Signup} />
+				<Route path="/about" component={About} />
+				<Route path="/login" component={Login} />
+				<Route path="/signup" component={Signup} />
+				<Route exact path="/" component={Index} />
 				<Route path="*" component={NotFound} />
 			</Switch>
 		</div>
