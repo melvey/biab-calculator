@@ -1,11 +1,17 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, {Component, PropTypes} from 'react';
+import {Link} from 'react-router-dom';
 import BrewConfiguration from '../../containers/BrewConfigurationContainer';
 import styles from './Header.scss';
 import logo from './hops.svg';
 import cogImage from './cog.svg';
 
 class Header extends Component {
+	static propTypes = {
+		user: PropTypes.shape({
+			username: PropTypes.string
+		})
+	};
+
 	constructor(props) {
 		super();
 		this.props = props;
@@ -21,7 +27,6 @@ class Header extends Component {
 		this.setState({settingsOn: !this.state.settingsOn});
 	}
 
-
 	render() {
 		return (
 			<div className={styles.root}>
@@ -34,6 +39,11 @@ class Header extends Component {
 						<p className={styles.bannerDesc}>For your recipies and stuff</p>
 					</div>
 				</div>
+
+				{ this.props.user
+					? <div className={styles.userDetails}>{this.props.user.username}</div>
+					: <div className={styles.userDetails}><Link to="/login">Login</Link></div>
+				}
 
 				<div className={styles.options}>
 					<button className={styles.settingsBtn} onClick={this.toggleSettings}><img src={cogImage} alt="Settings button" /></button>

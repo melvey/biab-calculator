@@ -29,7 +29,7 @@ class BrewConfiguration extends Component {
 	}
 
 	updateEfficiency(evt) {
-		this.props.updateFunc(Object.assign({}, this.props.settings, {efficiency: parseFloat(evt.target.value)}));
+		this.props.updateFunc(Object.assign({}, this.props.settings, {efficiency: parseFloat(evt.target.value) / 100}));
 	}
 	updateDryWeight(evt) {
 		this.props.updateFunc(Object.assign({}, this.props.settings, {grainDryWeight: parseFloat(evt.target.value)}));
@@ -44,7 +44,7 @@ class BrewConfiguration extends Component {
 			<div className={className}>
 				<div className={styles.row}>
 					<label htmlFor={this.state.efficiencyId}>Efficiency</label>
-					<input type="number" id={this.state.efficiencyID} value={this.props.settings.efficiency} onChange={this.updateEfficiency} />%
+					<input type="number" id={this.state.efficiencyID} value={this.props.settings.efficiency * 100} onChange={this.updateEfficiency} />%
 				</div>
 				<div className={styles.row}>
 					<label htmlFor={this.state.dryWeightId}>Grain Dry Weight</label>

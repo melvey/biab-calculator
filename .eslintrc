@@ -7,9 +7,6 @@
 		"browser": true,
 		"node": true
 	},
-	"ecmaFeatures": {
-		"jsx": true
-	},
 	"plugins": [
 		"react",
 		"babel"
@@ -206,10 +203,10 @@
 
 		// ECMAScript 6
 		"arrow-body-style": 2, //require braces in arrow function body
-		"arrow-parens": 0, //require parens in arrow function arguments
+		"arrow-parens": 2, //require parens in arrow function arguments
 		"arrow-spacing": 2, //require space before/after arrow function's arrow (fixable)
 		"constructor-super": 2, //verify calls of super() in constructors
-		"generator-star-spacing": 0, //enforce spacing around the * in generator functions (fixable)
+		"generator-star-spacing": 2, //enforce spacing around the * in generator functions (fixable)
 		"no-confusing-arrow": 2, //Disallow arrow functions where they could be confused with comparisons
 		"no-class-assign": 2, //disallow modifying variables of class declarations
 		"no-const-assign": 2, //disallow modifying variables that are declared using const
@@ -269,12 +266,9 @@
 		}],
 
 		// Babel
-		"babel/generator-star-spacing": 2,
 		"babel/new-cap": 2,
 //		"babel/array-bracket-spacing": 2,
 		"babel/object-curly-spacing": 2,
-		"babel/object-shorthand": 2,
-		"babel/arrow-parens": 2,
-		"babel/no-await-in-loop": 2
+		"no-await-in-loop": 2
 	}
 }

@@ -14,6 +14,7 @@ import getIBUs from '../lib/getIBUs';
 import grainLoader from '../loaders/grainLoader';
 import hopsLoader from '../loaders/hopsLoader';
 import yeastLoader from '../loaders/yeastLoader';
+import recipeLoader from '../loaders/recipeLoader';
 
 class RecipeFormContainer extends Component {
 
@@ -91,7 +92,13 @@ class RecipeFormContainer extends Component {
 		store.dispatch(setYeastAction(yeast));
 	}
 
+	static save() {
+		const state = store.getState();
+		recipeLoader(state.recipe)
+	}
+
 	render() {
+		console.log(this.props);
 		return (
 			<RecipeForm
 				{...this.props}
@@ -103,6 +110,7 @@ class RecipeFormContainer extends Component {
 				yeasts={this.props.yeastList}
 				updateYeast={RecipeFormContainer.updateYeast}
 				updateVolume={RecipeFormContainer.updateVolume}
+				saveFunc={RecipeFormContainer.save}
 			/>
 		);
 	}
@@ -111,6 +119,7 @@ class RecipeFormContainer extends Component {
 
 const mapStateToProps = (state) => ({
 	recipe: state.recipe,
+	authenticated: !!state.user,
 	grainList: state.ingredients.grains || [],
 	hopsList: state.ingredients.hops || [],
 	yeastList: state.ingredients.yeast || [],

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const GrainSchema = new mongoose.Schema({
+const GrainSchemaBase = {
 
 	name: {
 		type: String,
@@ -12,6 +12,9 @@ const GrainSchema = new mongoose.Schema({
 		min: 1,
 		max: 1.046
 	}
-});
+};
 
+const GrainSchema = new mongoose.Schema(GrainSchemaBase);
+
+export {GrainSchemaBase};
 export default mongoose.model('Grain', GrainSchema);

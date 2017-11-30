@@ -16,5 +16,6 @@ testConfig.output = {
 	path: path.join(__dirname, '../tmp'),
 	filename: 'tests.js'
 };
+testConfig.plugins = [];
 
 module.exports = testConfig;

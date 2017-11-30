@@ -49,4 +49,5 @@ const YeastSchema = new mongoose.Schema({
 	}
 });
 
+export {YeastSchema};
 export default mongoose.model('Yeast', YeastSchema);

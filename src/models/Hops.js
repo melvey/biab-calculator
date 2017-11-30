@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const HopsSchema = new mongoose.Schema({
+const HopsSchemaBase = {
 
 	name: {
 		type: String,
@@ -8,6 +8,9 @@ const HopsSchema = new mongoose.Schema({
 	},
 	aa: Number,
 	description: String
-});
+};
 
+const HopsSchema = new mongoose.Schema(HopsSchemaBase);
+
+export {HopsSchemaBase};
 export default mongoose.model('Hops', HopsSchema);

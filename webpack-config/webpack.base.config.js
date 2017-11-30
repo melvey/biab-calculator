@@ -15,7 +15,7 @@ module.exports = {
 			},
 			{
 				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/,
+//				exclude: /(node_modules|bower_components)/,
 				use: [
 					'babel-loader?presets[]=react,presets[]=stage-0'
 				]
